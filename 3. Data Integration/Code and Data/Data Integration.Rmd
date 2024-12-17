@@ -1,0 +1,61 @@
+---
+title: "Data Integration"
+author: "Hazim Fitri"
+output: pdf_document
+---
+
+# Data Integration
+
+## Import data in R
+
+### Native data set
+
+Using native data from R, we can call the data by using `data()`. For example:-
+
+```{r}
+data(iris)
+```
+
+If we wish to understand further regarding the data, we can put `?` in front of out datset. For example:-
+
+```{r}
+?iris
+```
+
+### Excel file (.xlsx)
+
+In order to load .xlsx file, first we need to load library openxlsx. Then, we will be able to use function `read.xlsx()`. To see all the default value, run `?read.xlsx`
+
+```{r}
+library(openxlsx)
+big_mart = read.xlsx('Big Mart Dataset.xlsx')
+```
+
+## Integrate Data
+
+```{r}
+mydata1 = read.table('mydata1.txt')
+mydata2 = read.csv('mydata2.csv')
+print(colnames(mydata1))
+print(colnames(mydata2))
+```
+
+Both data has different column names. Thus, in order to integrate both data, we can use `cbind()` function which will combine both column into one data frame.
+
+```{r}
+mydata3 = cbind(mydata1, mydata2)
+colnames(mydata3)
+```
+
+If there's any unique identifier, we can use `merge()` function and it'll automatically merge combine given datasets and merge column with the name name
+
+```{r}
+mydata4 = merge(mydata1, mydata2)
+mydata4
+```
+
+However, if the column name is different for both data sets, we can specify by using parameter `by.x` and `by.y`
+
+```{r}
+mydata
+```
