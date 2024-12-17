@@ -1,0 +1,48 @@
+---
+title: "Data Reduction"
+author: "Hazim Fitri"
+date: "2024-12-17"
+output: pdf_document
+---
+
+# Data Reduction
+
+Data reduction is a technique that we can use when the number of the data is too large and using full data requires a costly and time-consuming computational method. There are two techniques to reduce the data:
+
+1) Dimension Data Reduction
+
+2) Numerosity Data Reduction
+
+## Dimensional Data Reduction
+
+### Removing Attributes
+
+```{r}
+library(ISLR)
+data(package='ISLR')
+data("Hitters")
+?Hitters
+hitters2 = na.omit(Hitters)
+model.f = lm(Salary~., data=hitters2)
+summary(model.f)
+```
+
+As we can see from the above summary for linear model of salary with other variables, only certain variables can be considered significant as indicate by at least one '\*' at the right of the column. This indicates that the variables are at least significance at alpha =0.05
+
+```{r}
+hitters3 = cbind(hitters2$AtBat, hitters2$Hits, hitters2$Walks, hitters2$CWalks,
+                 hitters2$Division, hitters2$PutOuts)
+head(hitters3)
+```
+
+### Primary Component Analysis (PCA)
+
+```{r}
+
+```
+
+### Factor Analysis
+
+```{r}
+
+```

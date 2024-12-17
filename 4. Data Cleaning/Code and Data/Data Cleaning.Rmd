@@ -1,0 +1,13 @@
+---
+title: "Data Cleaning"
+author: "Hazim Fitri"
+date: "2024-12-17"
+output: pdf_document
+---
+
+# Data Cleaning
+
+```{r}
+library(mice)
+mdata = read.csv()
+```
