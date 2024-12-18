@@ -45,7 +45,7 @@ colnames(y) <- c('PCA1', 'PCA2', 'PCA3', 'PCA4', 'PCA5', 'PCA6')
 # data yang dikekalkan untuk analisis hanyalah PCA1 & PCA2
 data2 <- y[, c(1,2)]
 
-# Analisis faktor
+# Analisis faktor ----------------------------------------------------------------------
 fp_ft <-"C:\\Users\\PC 11\\OneDrive - Universiti Kebangsaan Malaysia\\P152419\\DATA MINING\\6 - Data set\\food-texture.csv"
 foodtexture <- read.csv(fp_ft, row.names="X")
 # piawaikan data
