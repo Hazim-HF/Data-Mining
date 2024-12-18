@@ -1,0 +1,17 @@
+---
+title: "Data Pre-Processing"
+author: "Hazim Fitri"
+output: pdf_document
+---
+
+# Data Pre-Processing
+
+Data Pre-Processing methods:
+
+1.  Data Integration
+
+2.  Data Cleaning
+
+3.  Data Reduction
+
+4.  Data Transformation
