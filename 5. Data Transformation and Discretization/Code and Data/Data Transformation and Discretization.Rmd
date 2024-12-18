@@ -1,0 +1,28 @@
+---
+title: "Data Transformation and Discretization"
+author: "Hazim Fitri"
+date: "2024-12-18"
+output: pdf_document
+---
+
+# Data Transformation and Discretization
+
+```{r}
+dataAP3 <- read.csv(filepath, header = T)
+head(dataAP3)
+data = dataAP3[,-c(1)]
+#Ozone
+attach(data)
+min.O3 <- min(ozone_ppm)
+max.O3 <- max(ozone_ppm)
+
+new_max.O3 <- 1
+new_min.O3 <- 0
+
+new.O3 <- ((ozone_ppm-min.O3) * (new_max.O3-new_min.O3) / (max.O3-min.O3)) + 
+          new()
+
+# iii. Penormalan
+pHnew <- pressure_height.hPA/1000
+vpanew <- 
+```
