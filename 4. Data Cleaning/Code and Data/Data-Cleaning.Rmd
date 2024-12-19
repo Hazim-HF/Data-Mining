@@ -39,7 +39,7 @@ mdata[!complete.cases(mdata),]
 
 ```{r}
 mdata$indus
-#edit(mdata$indus)
+edit(mdata$indus)
 mdata
 ```
 
