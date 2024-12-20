@@ -2,10 +2,11 @@
 title: "Data Reduction"
 author: "Hazim Fitri"
 date: "2024-12-17"
-output: pdf_document
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
 ---
-
-# Data Reduction
 
 Data reduction is a technique that we can use when the number of the data is too large and using full data requires a costly and time-consuming computational method. There are two techniques to reduce the data:
 
@@ -13,9 +14,9 @@ Data reduction is a technique that we can use when the number of the data is too
 
 2)  Numerosity Data Reduction
 
-## Dimensional Data Reduction
+# Dimensional
 
-### Removing Attributes
+## Removing Attributes
 
 ```{r}
 library(ISLR)
@@ -35,7 +36,7 @@ hitters3 = cbind(hitters2$AtBat, hitters2$Hits, hitters2$Walks, hitters2$CWalks,
 head(hitters3)
 ```
 
-### Primary Component Analysis (PCA)
+## Primary Component Analysis (PCA)
 
 ```{r}
 reading = read.csv('READING120n.csv')
@@ -80,9 +81,107 @@ prop.var = eigen(cor_z)$values / length(eigen(cor_z)$values)
 cumsum(prop.var)
 ```
 
-### Factor Analysis
+## Factor Analysis
 
 ```{r}
-fa = factanal(cor_z, factors=2, rotation='varimax')
-?factanal
+# = factanal(cor_z, factors=2, rotation='varimax')
+```
+
+# Numerosity
+
+## Parametric Model
+
+### Regression Model
+
+```{r}
+data = read.csv('data.csv', sep=';')
+head(data)
+```
+
+In this model, we're trying to predict the expenditure using 3 predictor variable which is the income, education level, and work experience. We assume the **Y is nearly normally distributed**
+
+```{r}
+hist(data$expenditure)
+```
+
+Since the response variable is not normal, we need to transform the data to be normal. For this example, we use log to transform the data
+
+```{r}
+exp_t = log(data$expenditure)
+hist(exp_t, main='Log of expenditure')
+```
+
+```{r}
+str(data)
+```
+
+Next, we notice that the education level is supposed to be a categorical variable instead of numerical variable. Thus, we need to change the data type first
+
+```{r}
+data$education_level = as.factor(data$education_level)
+str(data)
+```
+
+Now, we can start to fit the data into linear regression model.
+
+```{r}
+data_lm = lm(log(expenditure)~income+education_level+work_experience, data=data)
+summary(data_lm)
+```
+
+$R^2 > 0.99$ shows that this model is suitable for represent the original data. Save information related to this model
+
+1.  Parameter coefficient:
+2.  $$
+    log(expenditure) = 0.09621 + 0.0005(income) + 0.1872(education_level) + 0.3292(education_level3
+    $$
+3.  Feature information
+4.  
+
+```{r}
+
+```
+
+### Log-linear Model
+
+### Probability Distribution
+
+## Non-Parametric Model
+
+### Histogram
+
+### Resampling
+
+```{r}
+kewangan = read.table('Kewangan.D.txt')
+head(kewangan)
+```
+
+```{r}
+table(kewangan$Bangsa)/length(kewangan$Bangsa)
+```
+
+From the data above, we can see that the data is not properly represent Malaysia population. Thus, we can use our general knowledge for the proportaion. However, in the real world cases, this is the idea on how to calculate the proportion of each category. For this exercise, we'll use 60% Malay, 30% Chinese, 10% Indian.
+
+```{r}
+sample_size = 3000
+sm = sample_size * 0.6
+sc = sample_size * 0.3
+si = sample_size * 0.1
+dm = subset(kewangan, Bangsa=='Melayu')
+dc = subset(kewangan, Bangsa=='Cina')
+di = subset(kewangan, Bangsa=='India')
+nm = sample(nrow(dm), size=sm, replace=F)
+nc = sample(nrow(dc), size=sc, replace=F)
+ni = sample(nrow(di), size=si, replace=F)
+```
+
+### Clustering
+
+## Types of sampling
+
+### Simple
+
+```{r}
+
 ```
