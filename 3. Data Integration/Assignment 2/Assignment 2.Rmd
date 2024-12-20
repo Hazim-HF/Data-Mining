@@ -1,0 +1,19 @@
+---
+title: "Exercise 2"
+output: pdf_document
+---
+
+# Assignments 2: Data Integration
+
+1.  Combine the data from the **custdata2i** and **custdata3i** files through the identifying entity to the same "customer id" attribute. Ignore observations that do not contain complete attribute information.
+2.  Create a new data set for male customers with a salary greater thab 7000 dollars and also contain information for the following attributes:\
+    `state.of.res, custid, marital.stat, housing.type, num.vehicles, sex, income`
+3.  Show the data for each customer in the form of an ascending salary order.
+4.   Suppose new information is known as follows:\
+    ![](images/clipboard-4046379754.png){width="347"}
+5.  Add the new observation information in your data set.
+6.  Suppose you know new attribute information (personal loan) for each customer (newinfo file), combine the new attribute information with your data set.
+
+```{r}
+
+```
