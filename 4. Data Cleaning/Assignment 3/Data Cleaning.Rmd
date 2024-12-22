@@ -28,8 +28,5 @@ data = custdata5 %>%
   mutate(health.ins=as.factor(health.ins)) %>%
   mutate(housing.type=as.factor(housing.type)) %>%
   mutate(recent.move=as.factor(recent.move)) %>%
-  mutate(is.employed.fix1=as.factor(is.employed.fix1)) %>%
-
-
-str(data)
+  mutate(is.employed.fix1=as.factor(is.employed.fix1))
 ```
