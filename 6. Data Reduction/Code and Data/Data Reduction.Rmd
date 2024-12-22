@@ -40,7 +40,7 @@ head(hitters3)
 
 ```{r}
 reading = read.csv('READING120n.csv')
-head(reading)
+reading
 ```
 
 Remove non-numeric column.
@@ -53,6 +53,7 @@ head(reading2)
 ```{r}
 library(psych)
 describe(reading2)
+str(reading2)
 ```
 
 ```{r}
