@@ -1,0 +1,13 @@
+---
+title: "Mining Text Data"
+author: "Hazim Fitri"
+date: "2024-12-22"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+```{r}
+?read.transactions
+```
