@@ -168,22 +168,3 @@ n3 <- sample(nrow(d3), size = sample_indian, replace = F)
 sn3 <- d3[n3,]
 
 newdata <- rbind(sn1, sn2, sn3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

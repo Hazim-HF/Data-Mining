@@ -79,7 +79,52 @@ iris_knn
 
 # Statistical Method
 
+## Same data type
+
+For data with all variable in a numeric data type, we can impute using Predictive Mean Matching (PMM)
+
 ```{r}
 airquality = read.table('airquality.txt')
+airquality
+```
 
+```{r}
+library(mice)
+md.pattern(airquality)
+```
+
+```{r}
+impdata = mice(airquality, m=5, meth='pmm')
+```
+
+```{r}
+completedata = complete(impdata)
+completedata
+md.pattern(completedata)
+```
+
+## Different data type
+
+For data with different data type, we can use **use different method depends on the variable type**
+
+```{r}
+dat2 = read.csv('dat2.csv')
+dat2
+```
+
+```{r}
+md.pattern(dat2)
+```
+
+```{r}
+str(dat2)
+```
+
+```{r}
+library(dplyr)
+dat2 = dat2 %>%
+  mutate(Gender=as.factor(Gender)) %>%
+  mutate(Smoking=as.factor(Smoking)) %>%
+  mutate(Education=as.factor(Education))
+str(dat2)
 ```
