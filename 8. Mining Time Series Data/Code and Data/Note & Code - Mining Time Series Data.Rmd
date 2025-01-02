@@ -6,6 +6,7 @@ output:
   pdf_document:
     toc: true
     toc_depth: 6
+geometry: margin=0.5cm
 ---
 
 ## 1. Convert any data type into "Date" data type ISO 8601
@@ -170,8 +171,6 @@ fcst <- forecast(eco_model)
 fcst
 is.null(eco_model)
 ```
-
-![](images/clipboard-3702355767.png)
 
 ```{r}
 #eco_U <- fcst$pred+0.69*fcst$se
