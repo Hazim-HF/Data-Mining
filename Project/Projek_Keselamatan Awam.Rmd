@@ -1,0 +1,90 @@
+---
+title: "Keselamatan Awam"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+geometry: margin=0.5cm
+---
+
+# Introduction
+
+# Problem Statement
+
+# Coding
+
+## Loading library
+
+```{r, warning=FALSE}
+library(arrow)
+library(dplyr)
+library(forecast)
+```
+
+## Loading data
+
+```{r}
+raw_crime = read_parquet("https://storage.data.gov.my/publicsafety/crime_district.parquet")
+
+raw_prisoners_state = read_parquet("https://storage.data.gov.my/publicsafety/prisoners_state.parquet")
+
+raw_prisoners_prison = read_parquet("https://storage.data.gov.my/publicsafety/prisoners_prison.parquet")
+```
+
+## Exploratory Data Analysis (EDA)
+
+```{r}
+str(raw_crime)
+```
+
+```{r}
+crime = raw_crime %>% 
+  mutate(state = as.factor(state)) %>% 
+  mutate(district = as.factor(district)) %>%
+  mutate(category = as.factor(category))
+
+str(crime)
+```
+
+```{r}
+str(raw_prisoners_state)
+```
+
+```{r}
+prisoners_state = raw_prisoners_state %>%
+  mutate(state = as.factor(state)) %>%
+  mutate(sex = as.factor(sex))
+
+str(prisoners_state)
+```
+
+```{r}
+str(raw_prisoners_prison)
+```
+
+```{r}
+prisoners_prison = raw_prisoners_prison %>%
+  mutate(state = as.factor(state)) %>%
+  mutate(prison = as.factor(prison)) %>%
+  mutate(sex = as.factor(sex))
+
+str(prisoners_prison)
+```
+
+Looks like there's only 12 state in the prisoners_prison data and 13 state in the prisoners_state. This shows that there is one state that does not have a prison
+
+## Forecasting number of crime
+
+```{r}
+crime_mas = filter(crime, state == 'Malaysia' & type == 'all')
+crime_ts = ts(crime[,6], start = c(2017,1), frequency = 1)
+plot(forecast(auto.arima(crime_ts)))
+```
+
+```{r}
+plot()
+```
+
+## Comparing crime between states
+
+# Conclusion

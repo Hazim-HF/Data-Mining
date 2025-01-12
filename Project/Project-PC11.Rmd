@@ -1,0 +1,29 @@
+---
+title: "Project Data Mining"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+## Inflation Time Series Analysis
+
+```{r, warning=FALSE}
+library(arrow)
+cpi = read_parquet("https://storage.dosm.gov.my/cpi/cpi_2d_state.parquet")
+fuel = read_parquet("https://storage.data.gov.my/commodities/fuelprice.parquet")
+```
+
+```{r}
+str(cpi)
+cpi$date = as.Date(cpi$date, format = '%Y-%m-%d')
+```
+
+```{r}
+str(fuel)
+```
+
+```{r}
+data = merge(cpi, fuel, by.x = 'date', by.y = 'date')
+data
+```

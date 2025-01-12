@@ -1,0 +1,250 @@
+---
+title: "Mining Spatial Data"
+author: "Hazim Fitri"
+date: "2025-01-05"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+Raster = data gambar
+
+```{r}
+load("C:/Users/PC 11/OneDrive - Universiti Kebangsaan Malaysia/Data-Mining/11. Mining Spatial Data/wst.RData")
+
+attach(wst)
+
+library(sp)
+library(raster)
+
+wst
+```
+
+define spatial data
+
+```{r}
+lonlat = cbind(longitude, latitude)
+
+pts = SpatialPoints(lonlat)
+```
+
+define crs in spatial data
+
+```{r}
+crdref = CRS('+proj=longlat + datum=WGS84')
+
+pts = SpatialPoints(lonlat, proj4string = crdref)
+```
+
+Insert feature or variable
+
+```{r}
+df = data.frame(ID=name, precip)
+
+ptsdf = SpatialPointsDataFrame(pts, data=df)
+
+plot(ptsdf, axes = T)
+```
+
+```{r}
+showDefault(ptsdf)
+```
+
+```{r}
+lon = c(-116.8, -114.2, -112.9, -111.9, -114.2, -115.4, -117.7)
+
+lat = c(41.3, 42.9, 42.4, 39.8, 37.6, 38.3, 37.6)
+
+lonlat = cbind(lon, lat)
+
+lns = spLines(lonlat, crs=crdref)
+
+plot(lns, axes=T)
+```
+
+# Polygon
+
+```{r}
+pols = spPolygons(lonlat, crs=crdref)
+
+plot(pols, axes = T)
+```
+
+# Raster
+
+```{r}
+r = raster(ncol = 20, nrow=20, xmx=-80, xmn=-150, ymn=20, ymx=60)
+
+x = rexp(ncell(r))
+
+values(r) = x
+
+showDefault(r)
+```
+
+```{r}
+plot(r)
+```
+
+```{r}
+r2 = r*r
+r3 = sqrt(r)
+r4 = 2 * r2 + r3
+s = stack(r, r2, r3, r4)
+plot(s)
+```
+
+## Present data in data frame
+
+```{r}
+library(terra)
+f = system.file('external/lux.shp', package='raster')
+p = shapefile(f)
+plot(p, axes=T)
+```
+
+```{r}
+d = data.frame(p)
+
+d
+```
+
+```{r}
+showDefault(p)
+```
+
+## Extract attribute
+
+```{r}
+p$NAME_2
+p$AREA
+p2 = p[,'NAME_2']
+data.frame(p2)
+```
+
+## Add new attribute
+
+```{r}
+temp = 10 * rexp(12)
+p$Temperature = temp
+data.frame(p)
+```
+
+```{r}
+i = which(p$NAME_1 == 'Luxembourg')
+g = p[i,]
+plot(g, axes = T)
+```
+
+## Data integration
+
+```{r}
+dfr = data.frame(District=p$NAME_1, Canton = p$NAME_2,
+                 Precip = round(100*rexp(12),3)) # simulation data
+
+dfr[order(dfr$Canton), ]
+
+data2 = merge(p, dfr, by.x = c('NAME_1', 'NAME_2'), by.y = c('District', 'Canton'))
+
+data.frame(data2)
+```
+
+## Map manipulation
+
+```{r}
+z = raster(p, nrow=2, ncol=2, vals=1:4)
+
+names(z) = 'Zone'
+
+z = as(z, 'SpatialPolygonsDataFrame')
+
+plot(p, axes=T)
+plot(z, add = T, border = 'blue', lwd = 4)
+```
+
+Buang zone tertentu
+
+```{r}
+z2 = z[2, ]
+plot(p, axes=T)
+plot(z2, add = T, border = 'red')
+```
+
+```{r}
+e = erase(p, z2)
+plot(e,axes = T)
+```
+
+```{r}
+e = intersect(p, z2)
+plot(e,axes = T)
+```
+
+```{r}
+e3 = extent(6,6.8,49.7,50)
+pe = crop(p, e3)
+plot(p, axes=T)
+plot(pe, axes = T, add = T, col= 'green')
+```
+
+# Data manipulation for spatial raster
+
+## Extracts a single RasterLayer object from a RasterBrick or RasterStack object.
+
+```{r}
+plot(s)
+```
+
+## 
+
+```{r}
+r5 = raster(s, layer = 2)
+plot(r5)
+```
+
+## Algebra in raster data
+
+```{r}
+r6 = r2 + 10
+r7 = r6 ^ 2
+r8 = r * r2 + r7
+plot(r8)
+```
+
+## Add new values in the cell.
+
+```{r}
+pi = rgamma(400,30,20)
+r8$new = pi
+plot(r8)
+```
+
+## Crop and merge raster data
+
+```{r}
+l2 = crop(s, extent(-130, -90, 30,40))
+plot(l2)
+```
+
+```{r}
+l3 = crop(s, extent(-100, -80, 40, 50))
+m = merge(l2, l3)
+plot(m)
+```
+
+## Descriptive functions.
+
+mean
+
+```{r}
+cellStats(s, mean)
+```
+
+standard deviation
+
+```{r}
+cellStats(s, sd)
+```
+
+can try for other statistical measure such as median, range and so on
