@@ -1,0 +1,287 @@
+#Perlombongan Aturan Sekutuan
+
+#Data: groceries.csv
+
+library(arules)
+install.packages("arulesViz")
+library(arulesViz)
+
+#import data transaksi
+tdata<- read.transactions(file.choose(), sep=",")
+
+#deskriptif data
+inspect(head(tdata, 20))
+LIST(head(tdata, 20))
+
+#bilangan item bagi setiap traksaksi/pembelian
+size(head(tdata, 20))
+
+#i)Bagaimana untuk melihat item yang paling kerap 
+#dibeli?
+itemFrequencyPlot(tdata, topN=10, 
+                  main="Item paling kerap dibeli")
+
+#ii) Bagaimana untuk mendapatkan Aturan Sekutuan yang
+#signifikan bagi cadangan produk?
+
+#set nilai minimum ambang sokongan & keyakinan
+#support=0.01, confidence=0.3 
+
+Aturan.S1<- apriori(tdata, 
+            parameter=list(supp=0.01, conf=0.3))
+inspect(Aturan.S1)
+
+#lihat aturan dengan tertib lif menurun
+Aturan.S2<- sort(Aturan.S1, by="lift",
+                 decreasing=T)
+inspect(Aturan.S2)
+
+#lihat aturan dengan tertib keyakinan menurun
+Aturan.S3<- sort(Aturan.S1, by="confidence",
+                 decreasing=T)
+inspect(Aturan.S3)
+
+lihat aturan dengan tertib support menurun
+Aturan.S4<- sort(Aturan.S1, by="support",
+                 decreasing=T)
+inspect(Aturan.S4)
+
+
+#Pengvisualan aturan sekutuan
+#plot rangkaian
+plot(Aturan.S4, method="graph")
+
+#plot koordinat selari
+plot(Aturan.S4, method="paracoord",
+                control=list(reorder=T))
+
+
+#jika bilangan aturan sekutuan yg diperolehi adalah 
+#terlalu banyak
+#tinggikan nilam ambang ukuran untuk kekalkan aturan
+#sekutuan yg lebih bermakna sahaja
+
+#support=0.01, confidence=0.5)
+Aturan.S5<- apriori(tdata, 
+            parameter=list(supp=0.01, conf=0.5))
+inspect(Aturan.S5)
+
+#plot rangkaian
+plot(Aturan.S5, method="graph")
+
+#plot koordinat selari
+windows(10,10)
+plot(Aturan.S5, method="paracoord",
+                control=list(reorder=T))
+
+
+#iii) Bagaimana untuk mendapatkan Aturan Sekutuan 
+#yang berkait dengan item tertentu?
+
+#kes 1: dapatkan aturan yang mempengaruhi pembelian
+#item Y (RHS)
+
+#Contoh: Barangan apa yang akan dibeli terlebih dahulu
+#sebelum pelanggan membeli item "yogurt"
+
+Aturan.S6<- apriori(tdata, 
+      parameter=list(supp=0.01, conf=0.08),
+      appearance=list(default="lhs", rhs="yogurt"))
+inspect(Aturan.S6)
+
+
+#plot rangkaian
+plot(Aturan.S6, method="graph")
+
+#plot koordinat selari
+windows(10,10)
+plot(Aturan.S6, method="paracoord",
+                control=list(reorder=T))
+
+
+#kes 2: dapatkan aturan bagi produk apa yang biasa
+#dibeli selepas pembelian item X (LHS)
+
+#Contoh: Barangan apa yang akan akan dibeli 
+#selepas pelanggan membeli item "yogurt"
+
+Aturan.S7<- apriori(tdata, 
+      parameter=list(supp=0.01, conf=0.08),
+      appearance=list(default="rhs", lhs="yogurt"))
+inspect(Aturan.S7)
+
+#plot rangkaian
+plot(Aturan.S7, method="graph")
+
+#plot koordinat selari
+windows(10,10)
+plot(Aturan.S7, method="paracoord",
+                control=list(reorder=T))
+
+Aturan.S8<- sort(Aturan.S7, by="lift",
+                 decreasing=T)
+inspect(Aturan.S8)
+
+##Latihan
+#set nilai minimum ambang sokongan & keyakinan
+#support=0.1, confidence=0.6 
+
+Aturan.Lat<- apriori(titanic.raw, 
+              parameter=list(supp=0.1, conf=0.6))
+inspect(Aturan.Lat)
+
+
+#Dapatkan deskriptif statistik bagi data. 
+summary(titanic.raw)
+ 
+#Plotkan aturan sekutuan yg diperoleh   
+#menggunakan plot-plot yang sesuai. 
+#plot rangkaian
+plot(Aturan.Lat, method="graph")
+
+#Dapatkan aturan sekutuan yang menunjukkan ciri-ciri 
+#individu yang  terselamat dari tragedi titanic 
+#(rhs: p/ubah survival). 
+
+Aturan.Lat2<- apriori(titanic.raw, 
+     parameter=list(supp=0.1, conf=0.6),
+    appearance=list(default="lhs", rhs="Survived=Yes"))
+inspect(Aturan.Lat2)
+
+#Pengvisualan aturan sekutuan
+#plot rangkaian
+plot(Aturan.Lat2, method="graph")
+
+#plot koordinat selari
+plot(Aturan.Lat2, method="paracoord",
+                control=list(reorder=T))
+
+
+#Dapatkan aturan sekutuan bagi orang yang terselamat 
+#daripada kelas 1, 2 & 3 (rhs ialah “Survived=Yes” 
+#dan lhs mengandungi info Class=1st, 2nd & 
+#3rd; Age=Child & Adult )
+
+Aturan.Lat3<- apriori(titanic.raw, 
+     parameter=list(supp=0.01, conf=0.6),
+    appearance=list(lhs=c("Class=1st", "Class=2nd", 
+    "Class=3rd", "Age=Child", "Age=Adult"), rhs="Survived=Yes"))
+inspect(Aturan.Lat3)
+
+#Pengvisualan aturan sekutuan
+#plot rangkaian
+plot(Aturan.Lat3, method="graph")
+
+#plot koordinat selari
+plot(Aturan.Lat3, method="paracoord",
+                control=list(reorder=T))
+
+
+
+
+
+#Perlombongan Data Jujukan
+install.packages("TraMineR")
+library(TraMineR)
+
+data(mvad)
+head(mvad)
+
+#lajur 1 hingga 14 adalah maklumat demografi
+#lajur 1 hingga 14 bukan data jujukan
+
+#data jujukan bermula lajur 15 hingga 86
+#perlu takrifkan lajur 15 hingga 86 kepada format data
+#jujukan
+
+#takrifkan label & kod bagi setiap keadaan
+mvad.labels<- c("employment", "further education",
+               "higher education", "joblessness",
+               "school", "training")
+mvad.scode<- c("EM", "FE", "HE", "JL", "SC", "TR")
+
+#bina data kelas jujukan
+mvad.seq<- seqdef(mvad, 15:86, states=mvad.scode,
+                  labels=mvad.labels, xtstep=6)
+
+#Penunjuk ringkasan statistik
+#i)Min masa proses berada dalam setiap keadaan
+seqmeant(mvad.seq)
+
+#ii)Min masa proses berada dalam setiap keadaan
+#bagi kumpulan tertentu.
+
+#bagi kumpulan jantina
+by(mvad.seq, mvad$male, seqmeant)
+
+#bagi kumpulan status pekerjaan bapa
+by(mvad.seq, mvad$funemp, seqmeant)
+
+#pengvisulan 
+seqmtplot(mvad.seq, group=mvad$male, main="Lelaki")
+seqmtplot(mvad.seq, group=mvad$funemp, 
+           main="Bapa Bekerja")
+
+#iii)Bilangan transisi (peralihan).
+dat1<- seqtransn(mvad.seq)
+hist(dat1, main="Bilangan transisi")
+mean(dat1)
+sd(dat1)
+table(dat1)
+
+#iv) Kadar peralihan
+mvad.trate<- seqtrate(mvad.seq)
+
+#v) Keadaan peralihan yang bergantung terhadap masa
+mvad.trate2<- seqtrate(mvad.seq, time.varying=T)
+
+#Pengvisualan
+#i) Plot indeks jujukan
+#20 individu pertama
+seqiplot(mvad.seq, main="Plot indeks jujukan", 
+         idxs=1:20)
+
+#100 individu pertama
+windows(10,10)
+seqiplot(mvad.seq, main="Plot indeks jujukan", 
+         idxs=1:100)
+
+#individu ke 20 hingga 30
+seqiplot(mvad.seq, main="Plot indeks jujukan", 
+         idxs=20:30)
+
+#pilih individu yang khusus 
+#(1, 2, 15, 90, 200, 267, 456, 666, 700)
+seqiplot(mvad.seq, main="Plot indeks jujukan", 
+         idxs=c(1,2,15,90,200,267,456,666,700))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
