@@ -1,0 +1,501 @@
+"","state.of.res","ID Customer","sex","Working","marital.stat","ins.health","Home Status","recent.move"
+"734","Ohio",1057778,"F",NA,"Never Married",TRUE,"Rented",FALSE
+"480","Minnesota",33651,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"547","New Jersey",1181596,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"539","Nevada",867842,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"148","California",863391,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"466","Michigan",184686,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"609","New York",650961,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"552","New Jersey",565740,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"195","Florida",220135,"M",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"809","Pennsylvania",416624,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"380","Maine",1411860,"F",NA,"Widowed",TRUE,NA,NA
+"476","Minnesota",912196,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"446","Michigan",739344,"M",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"156","Colorado",1390506,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"278","Illinois",847699,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",TRUE
+"357","Louisiana",598008,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"404","Massachusetts",361561,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"644","New York",1046696,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"920","Texas",22295,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"198","Florida",503412,"M",TRUE,"Never Married",TRUE,NA,NA
+"874","Tennessee",1032120,"F",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"56","California",65004,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"52","California",1241524,"M",TRUE,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"130","California",1409249,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"163","Colorado",973386,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"630","New York",1131990,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"922","Texas",97247,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"581","New Jersey",66778,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"504","Missouri",607766,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"15","Arizona",1096606,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"86","California",1269661,"F",NA,"Married",FALSE,"Homeowner free and clear",FALSE
+"972","Washington",491280,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"42","California",167154,"M",NA,"Never Married",FALSE,NA,NA
+"967","Washington",1281448,"M",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"554","New Jersey",68221,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"122","California",1159665,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"511","Missouri",735845,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"863","South Carolina",103389,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"558","New Jersey",560783,"F",NA,"Never Married",TRUE,NA,NA
+"152","California",1361709,"M",NA,"Married",TRUE,"Rented",FALSE
+"820","Pennsylvania",980947,"F",NA,"Never Married",TRUE,"Rented",TRUE
+"914","Texas",18487,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"44","California",616498,"M",TRUE,"Never Married",FALSE,"Rented",FALSE
+"762","Ohio",779164,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"973","Washington",931352,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"383","Maryland",254969,"F",TRUE,"Divorced/Separated",FALSE,"Rented",FALSE
+"531","Nebraska",545826,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"94","California",994628,"F",NA,"Married",FALSE,"Rented",FALSE
+"230","Georgia",80549,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"462","Michigan",79069,"M",TRUE,"Married",FALSE,"Rented",TRUE
+"672","New York",1115937,"F",NA,"Never Married",TRUE,"Rented",FALSE
+"4","Alabama",1079878,"F",NA,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"83","California",223773,"F",NA,"Widowed",TRUE,"Rented",TRUE
+"483","Minnesota",875771,"M",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"318","Indiana",1283783,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"952","Virginia",1264160,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"233","Georgia",908176,"F",NA,"Widowed",TRUE,"Rented",FALSE
+"787","Pennsylvania",281529,"F",NA,"Divorced/Separated",FALSE,"Homeowner free and clear",FALSE
+"763","Ohio",913398,"M",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"718","Ohio",1299959,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"142","California",535114,"F",NA,"Married",FALSE,"Homeowner with mortgage/loan",TRUE
+"987","Wisconsin",409728,"M",TRUE,"Never Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"393","Maryland",67776,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"347","Kentucky",136206,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"556","New Jersey",536463,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"650","New York",1259310,"M",TRUE,"Never Married",FALSE,"Rented",TRUE
+"915","Texas",1297652,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"291","Illinois",597817,"F",NA,"Widowed",TRUE,"Rented",FALSE
+"430","Michigan",364991,"F",NA,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"28","Arkansas",1269051,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"906","Texas",324029,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"170","Connecticut",150055,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"658","New York",1303744,"M",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"413","Massachusetts",1295682,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"522","Missouri",1408280,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"409","Massachusetts",578596,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"340","Kansas",1364327,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"520","Missouri",177145,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"427","Michigan",456859,"M",TRUE,"Never Married",TRUE,NA,NA
+"591","New York",605624,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"959","Virginia",449907,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"993","Wisconsin",373976,"F",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"847","Pennsylvania",374461,"M",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"697","North Carolina",965689,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"754","Ohio",1288195,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"690","North Carolina",568892,"F",NA,"Widowed",TRUE,"Rented",FALSE
+"185","Delaware",1317659,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"99","California",53186,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"440","Michigan",661353,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"474","Minnesota",1095968,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"34","Arkansas",356688,"F",TRUE,"Never Married",FALSE,"Rented",FALSE
+"821","Pennsylvania",180009,"M",FALSE,"Divorced/Separated",TRUE,"Rented",TRUE
+"323","Indiana",668199,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"203","Florida",980375,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"229","Georgia",1216615,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"13","Alaska",415575,"M",NA,"Never Married",TRUE,NA,NA
+"382","Maryland",86711,"M",NA,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"288","Illinois",196828,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"209","Florida",195539,"M",NA,"Married",TRUE,"Rented",FALSE
+"477","Minnesota",1171408,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"405","Massachusetts",1386114,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"202","Florida",571834,"F",FALSE,"Never Married",TRUE,"Rented",FALSE
+"613","New York",510349,"F",NA,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"235","Georgia",1065669,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"612","New York",1121810,"F",NA,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"575","New Jersey",606307,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"998","Wyoming",1216094,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"812","Pennsylvania",635515,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"124","California",38827,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"330","Iowa",519446,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"133","California",816773,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"985","Wisconsin",264292,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"406","Massachusetts",1029778,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"342","Kentucky",1239496,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"314","Indiana",1065059,"F",FALSE,"Never Married",FALSE,"Rented",FALSE
+"422","Massachusetts",1369231,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"745","Ohio",1086100,"F",FALSE,"Never Married",FALSE,"Rented",FALSE
+"93","California",878882,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"595","New York",869997,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"535","Nebraska",287882,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"703","North Carolina",1111699,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"16","Arizona",692445,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"861","South Carolina",342460,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"806","Pennsylvania",368645,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"8","Alabama",467335,"M",TRUE,"Never Married",FALSE,"Rented",FALSE
+"458","Michigan",649827,"F",NA,"Married",TRUE,NA,NA
+"507","Missouri",77312,"M",TRUE,"Married",FALSE,"Homeowner free and clear",FALSE
+"741","Ohio",308107,"F",TRUE,"Never Married",FALSE,"Rented",FALSE
+"300","Indiana",427431,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"158","Colorado",1165177,"M",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"285","Illinois",396116,"F",NA,"Married",TRUE,"Rented",FALSE
+"674","New York",1400440,"M",NA,"Married",TRUE,NA,NA
+"845","Pennsylvania",991888,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"201","Florida",761424,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"917","Texas",62999,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"668","New York",618059,"F",NA,"Widowed",TRUE,"Occupied with no rent",FALSE
+"234","Georgia",1042791,"M",FALSE,"Married",TRUE,"Rented",TRUE
+"624","New York",957083,"M",NA,"Divorced/Separated",TRUE,"Rented",TRUE
+"155","Colorado",540956,"F",TRUE,"Never Married",FALSE,"Rented",FALSE
+"851","Rhode Island",1218268,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"698","North Carolina",166246,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"306","Indiana",693235,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"771","Ohio",1152584,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"858","South Carolina",1171358,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"747","Ohio",262234,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"939","Utah",612775,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"237","Georgia",638760,"M",FALSE,"Married",FALSE,"Homeowner free and clear",FALSE
+"626","New York",562962,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"97","California",1412971,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"777","Oklahoma",991794,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"74","California",90863,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"471","Minnesota",276306,"M",FALSE,"Married",TRUE,"Rented",FALSE
+"265","Illinois",178178,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"896","Texas",595944,"F",TRUE,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"465","Michigan",117911,"M",TRUE,"Widowed",TRUE,"Rented",FALSE
+"245","Idaho",17946,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"30","Arkansas",1200487,"M",NA,"Never Married",FALSE,NA,NA
+"824","Pennsylvania",1237055,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"530","Nebraska",54177,"M",FALSE,"Married",TRUE,"Homeowner free and clear",FALSE
+"964","Washington",1117622,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",TRUE
+"164","Connecticut",76182,"F",TRUE,"Divorced/Separated",FALSE,"Homeowner with mortgage/loan",FALSE
+"925","Texas",688736,"F",NA,"Married",TRUE,"Rented",FALSE
+"827","Pennsylvania",127965,"M",TRUE,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"744","Ohio",138865,"M",TRUE,"Divorced/Separated",FALSE,"Rented",FALSE
+"493","Mississippi",668750,"F",NA,"Never Married",FALSE,NA,NA
+"371","Louisiana",151678,"M",NA,"Never Married",FALSE,NA,NA
+"680","New York",1253904,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"78","California",1392648,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"685","North Carolina",556935,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"538","Nevada",181754,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"179","Connecticut",776471,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"499","Mississippi",1238436,"F",NA,"Married",FALSE,"Rented",FALSE
+"271","Illinois",283607,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"345","Kentucky",900377,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"316","Indiana",583093,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"673","New York",814627,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"518","Missouri",532940,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"129","California",1371785,"F",TRUE,"Divorced/Separated",FALSE,"Homeowner with mortgage/loan",FALSE
+"582","New Jersey",820384,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"992","Wisconsin",100475,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"962","Virginia",214083,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"256","Illinois",863424,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"331","Iowa",979736,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"91","California",988580,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"443","Michigan",2848,"M",TRUE,"Never Married",FALSE,"Rented",TRUE
+"704","North Carolina",6369,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"817","Pennsylvania",831497,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"669","New York",832866,"M",NA,"Divorced/Separated",FALSE,"Homeowner with mortgage/loan",FALSE
+"484","Minnesota",938913,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"174","Connecticut",227318,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"894","Texas",1053513,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"49","California",1353087,"M",NA,"Never Married",FALSE,NA,NA
+"608","New York",113390,"M",TRUE,"Never Married",FALSE,"Rented",FALSE
+"872","Tennessee",459959,"F",NA,"Widowed",TRUE,NA,NA
+"109","California",52382,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"374","Maine",1150024,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"566","New Jersey",601247,"M",NA,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"804","Pennsylvania",107458,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",TRUE
+"272","Illinois",1064979,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"464","Michigan",591244,"M",NA,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"954","Virginia",149429,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"172","Connecticut",892483,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"637","New York",435651,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"823","Pennsylvania",1386080,"F",NA,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"296","Illinois",406984,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"377","Maine",580304,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"196","Florida",419951,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"789","Pennsylvania",520390,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"143","California",199788,"M",FALSE,"Never Married",FALSE,"Homeowner free and clear",TRUE
+"607","New York",1267400,"M",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"877","Tennessee",716518,"M",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"944","Virginia",53214,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"926","Texas",1034994,"F",NA,"Widowed",TRUE,"Occupied with no rent",FALSE
+"540","New Hampshire",809267,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"84","California",517696,"F",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"770","Ohio",445985,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"559","New Jersey",421248,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"983","Wisconsin",928004,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"147","California",265299,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"397","Massachusetts",832435,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"702","North Carolina",1405584,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"14","Alaska",416144,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"870","Tennessee",828208,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"434","Michigan",685994,"F",TRUE,"Married",FALSE,"Homeowner free and clear",FALSE
+"795","Pennsylvania",1342272,"F",FALSE,"Married",FALSE,"Rented",FALSE
+"77","California",497970,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"402","Massachusetts",40132,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"327","Iowa",69062,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"487","Minnesota",1108038,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"662","New York",860763,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"269","Illinois",805571,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"598","New York",382338,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"225","Georgia",679364,"F",FALSE,"Married",TRUE,"Homeowner free and clear",FALSE
+"793","Pennsylvania",14989,"M",NA,"Married",TRUE,"Rented",FALSE
+"80","California",354269,"M",NA,"Never Married",FALSE,"Rented",TRUE
+"378","Maine",1213106,"M",TRUE,"Married",TRUE,"Homeowner free and clear",TRUE
+"692","North Carolina",337683,"F",TRUE,"Widowed",TRUE,"Rented",FALSE
+"848","Pennsylvania",1354211,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"742","Ohio",886647,"F",TRUE,"Never Married",FALSE,"Rented",FALSE
+"492","Mississippi",1402550,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",TRUE
+"798","Pennsylvania",645268,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"85","California",8322,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"684","New York",430516,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"822","Pennsylvania",761380,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"137","California",460642,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"438","Michigan",164576,"F",NA,"Never Married",FALSE,"Rented",FALSE
+"275","Illinois",316280,"M",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"810","Pennsylvania",1401938,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"167","Connecticut",948494,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"250","Illinois",1024624,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner free and clear",FALSE
+"976","West Virginia",848521,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"829","Pennsylvania",311095,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"373","Maine",799074,"F",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"309","Indiana",926808,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"726","Ohio",1267682,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"611","New York",115100,"M",NA,"Never Married",FALSE,NA,NA
+"166","Connecticut",837381,"M",TRUE,"Never Married",TRUE,NA,NA
+"488","Mississippi",897580,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"502","Mississippi",823146,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"317","Indiana",1044036,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"310","Indiana",318348,"F",TRUE,"Divorced/Separated",FALSE,"Homeowner with mortgage/loan",FALSE
+"765","Ohio",1356541,"F",NA,"Never Married",TRUE,"Rented",TRUE
+"219","Georgia",479327,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"871","Tennessee",606108,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"869","Tennessee",1072259,"M",NA,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"857","South Carolina",647206,"M",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"933","Texas",395888,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"743","Ohio",1031473,"M",TRUE,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"562","New Jersey",106726,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"366","Louisiana",712409,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"69","California",27214,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"929","Texas",1100932,"F",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"840","Pennsylvania",1194722,"F",FALSE,"Never Married",FALSE,"Rented",FALSE
+"911","Texas",335080,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"837","Pennsylvania",805224,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"9","Alabama",462569,"M",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"523","Missouri",584570,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"699","North Carolina",1263543,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"666","New York",998185,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"592","New York",26057,"M",TRUE,"Married",TRUE,NA,NA
+"800","Pennsylvania",1322627,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"282","Illinois",968830,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"801","Pennsylvania",1241975,"M",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"79","California",510555,"M",TRUE,"Divorced/Separated",FALSE,"Rented",FALSE
+"711","North Dakota",1052064,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"270","Illinois",878578,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"653","New York",1327830,"M",NA,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"546","New Hampshire",1086785,"F",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"852","South Carolina",206122,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"76","California",1391586,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"37","Arkansas",1079462,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"360","Louisiana",705752,"F",TRUE,"Widowed",TRUE,"Rented",FALSE
+"678","New York",1184851,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"437","Michigan",1048652,"F",NA,"Divorced/Separated",TRUE,"Rented",TRUE
+"667","New York",683867,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"728","Ohio",1213329,"F",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"303","Indiana",1273216,"M",NA,"Married",FALSE,"Rented",FALSE
+"114","California",907824,"F",FALSE,"Never Married",FALSE,"Rented",FALSE
+"550","New Jersey",1269422,"M",TRUE,"Never Married",TRUE,NA,NA
+"341","Kansas",685624,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"752","Ohio",167498,"M",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"490","Mississippi",789913,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"123","California",169519,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"218","Georgia",445622,"F",NA,"Never Married",TRUE,"Rented",FALSE
+"778","Oklahoma",1217985,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"344","Kentucky",1264817,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"664","New York",845421,"F",FALSE,"Married",TRUE,"Rented",FALSE
+"43","California",1245912,"F",TRUE,"Married",TRUE,"Occupied with no rent",FALSE
+"320","Indiana",1046317,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"445","Michigan",37224,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"542","New Hampshire",993668,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"825","Pennsylvania",792130,"F",NA,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"236","Georgia",303624,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"180","Connecticut",491848,"F",NA,"Widowed",TRUE,"Rented",FALSE
+"72","California",26355,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"151","California",487124,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"969","Washington",268667,"M",NA,"Never Married",TRUE,NA,NA
+"854","South Carolina",423279,"M",TRUE,"Never Married",TRUE,"Rented",TRUE
+"753","Ohio",1245887,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"57","California",1175925,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"628","New York",546208,"M",NA,"Divorced/Separated",TRUE,NA,NA
+"418","Massachusetts",1278909,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"555","New Jersey",84636,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"295","Illinois",316205,"F",FALSE,"Married",TRUE,"Rented",FALSE
+"655","New York",179481,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"799","Pennsylvania",96964,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"705","North Carolina",613391,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"410","Massachusetts",583934,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"776","Oklahoma",310588,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"677","New York",1212823,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"862","South Carolina",635574,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"221","Georgia",397230,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"635","New York",5641,"M",TRUE,"Never Married",FALSE,"Occupied with no rent",FALSE
+"758","Ohio",1172770,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"815","Pennsylvania",1264848,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"293","Illinois",589826,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"713","Ohio",388567,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"313","Indiana",1267710,"M",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"206","Florida",432526,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"352","Kentucky",932143,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"324","Indiana",723040,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"942","Virginia",1328084,"F",FALSE,"Married",TRUE,"Rented",FALSE
+"62","California",756667,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"717","Ohio",520030,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"157","Colorado",648220,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"159","Colorado",841342,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"755","Ohio",364328,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"807","Pennsylvania",361946,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"444","Michigan",36825,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"311","Indiana",124968,"F",TRUE,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"359","Louisiana",33828,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"797","Pennsylvania",638458,"F",NA,"Never Married",FALSE,"Rented",FALSE
+"67","California",196613,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"496","Mississippi",1090019,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"610","New York",763255,"M",TRUE,"Never Married",TRUE,"Rented",TRUE
+"740","Ohio",786358,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"103","California",146457,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"121","California",620116,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"1000","Wyoming",1117486,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"181","Connecticut",896869,"F",FALSE,"Divorced/Separated",FALSE,"Rented",FALSE
+"551","New Jersey",928569,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"161","Colorado",1274592,"M",TRUE,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"312","Indiana",980412,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"524","Missouri",551584,"M",TRUE,"Married",TRUE,"Homeowner free and clear",TRUE
+"883","Tennessee",1143785,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"187","Florida",904144,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"868","South Dakota",52436,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"239","Georgia",592496,"M",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"433","Michigan",394696,"F",NA,"Married",TRUE,"Rented",FALSE
+"290","Illinois",1366883,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"819","Pennsylvania",925421,"M",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"513","Missouri",693571,"F",NA,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"614","New York",382614,"M",NA,"Never Married",TRUE,NA,NA
+"938","Utah",795198,"F",FALSE,"Married",TRUE,"Rented",FALSE
+"864","South Carolina",1307013,"F",NA,"Widowed",FALSE,"Rented",FALSE
+"146","California",1393715,"F",FALSE,"Never Married",TRUE,"Rented",FALSE
+"989","Wisconsin",1392011,"F",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"386","Maryland",174248,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"975","West Virginia",953043,"F",TRUE,"Never Married",TRUE,"Rented",TRUE
+"279","Illinois",1284555,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"936","Utah",642727,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"75","California",955457,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"561","New Jersey",898396,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"204","Florida",511732,"F",NA,"Never Married",FALSE,NA,NA
+"905","Texas",1076007,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"277","Illinois",726057,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"401","Massachusetts",816872,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"587","New Mexico",72741,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"294","Illinois",1303929,"F",FALSE,"Never Married",TRUE,"Rented",FALSE
+"31","Arkansas",253015,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"71","California",419751,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"338","Kansas",964297,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"709","North Carolina",403690,"M",FALSE,"Divorced/Separated",FALSE,"Homeowner with mortgage/loan",FALSE
+"212","Florida",934426,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"376","Maine",542384,"F",NA,"Married",FALSE,"Rented",FALSE
+"448","Michigan",960591,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"766","Ohio",376508,"F",NA,"Married",FALSE,"Rented",FALSE
+"472","Minnesota",458094,"F",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"365","Louisiana",1258309,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"943","Virginia",1335632,"M",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"268","Illinois",830758,"F",TRUE,"Never Married",FALSE,"Rented",TRUE
+"485","Minnesota",612779,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"1","Alabama",1063014,"F",TRUE,"Married",TRUE,"Rented",FALSE
+"691","North Carolina",460925,"F",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"515","Missouri",489718,"M",NA,"Never Married",TRUE,"Rented",TRUE
+"503","Mississippi",822729,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"912","Texas",133268,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"600","New York",331868,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"494","Mississippi",85398,"F",TRUE,"Never Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"305","Indiana",559955,"M",NA,"Never Married",FALSE,NA,NA
+"657","New York",1375846,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"403","Massachusetts",1176266,"F",TRUE,"Never Married",FALSE,"Rented",TRUE
+"101","California",1285807,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"605","New York",761350,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"248","Illinois",2068,"F",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"127","California",628305,"M",NA,"Married",TRUE,NA,NA
+"727","Ohio",1037857,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"663","New York",298205,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"949","Virginia",415060,"F",FALSE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"514","Missouri",667156,"F",TRUE,"Married",TRUE,"Rented",TRUE
+"947","Virginia",873626,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"651","New York",596523,"F",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"60","California",383455,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"604","New York",499807,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"725","Ohio",159573,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"11","Alabama",1036358,"F",TRUE,"Divorced/Separated",TRUE,"Rented",TRUE
+"842","Pennsylvania",84879,"F",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"576","New Jersey",1393413,"M",TRUE,"Never Married",TRUE,"Occupied with no rent",FALSE
+"500","Mississippi",931141,"M",TRUE,"Divorced/Separated",FALSE,"Rented",TRUE
+"308","Indiana",283521,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"696","North Carolina",504889,"M",FALSE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"104","California",158530,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"416","Massachusetts",1127889,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"407","Massachusetts",988264,"M",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"498","Mississippi",728498,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"267","Illinois",42374,"M",NA,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"369","Louisiana",846713,"M",NA,"Never Married",TRUE,NA,NA
+"589","New Mexico",153419,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"768","Ohio",1339166,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"733","Ohio",756892,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"54","California",218283,"F",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"478","Minnesota",178887,"F",NA,"Married",FALSE,"Rented",FALSE
+"113","California",999444,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"945","Virginia",468344,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"722","Ohio",209604,"M",TRUE,"Married",TRUE,"Homeowner free and clear",FALSE
+"417","Massachusetts",1159904,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"890","Texas",1003135,"M",NA,"Married",TRUE,NA,NA
+"636","New York",829195,"M",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"958","Virginia",1369460,"M",FALSE,"Never Married",FALSE,"Homeowner free and clear",FALSE
+"48","California",1016594,"M",NA,"Married",TRUE,"Rented",FALSE
+"325","Indiana",1110962,"M",FALSE,"Divorced/Separated",FALSE,"Rented",FALSE
+"841","Pennsylvania",604839,"M",TRUE,"Never Married",TRUE,"Rented",FALSE
+"19","Arizona",492072,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"214","Florida",111870,"M",TRUE,"Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"557","New Jersey",968478,"F",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"475","Minnesota",1160167,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"358","Louisiana",523769,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"545","New Hampshire",868481,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"563","New Jersey",250108,"F",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"521","Missouri",499492,"M",NA,"Never Married",TRUE,"Homeowner free and clear",FALSE
+"606","New York",149480,"F",NA,"Married",FALSE,"Homeowner free and clear",FALSE
+"831","Pennsylvania",646808,"M",TRUE,"Married",TRUE,"Rented",FALSE
+"95","California",871562,"M",TRUE,"Never Married",FALSE,"Rented",TRUE
+"510","Missouri",184170,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"299","Illinois",1110560,"M",TRUE,"Never Married",FALSE,"Homeowner with mortgage/loan",FALSE
+"632","New York",825790,"F",TRUE,"Married",TRUE,"Homeowner free and clear",TRUE
+"866","South Carolina",818228,"M",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"182","Delaware",450776,"F",TRUE,"Divorced/Separated",FALSE,"Rented",FALSE
+"616","New York",1236386,"F",NA,"Widowed",TRUE,"Homeowner free and clear",FALSE
+"138","California",348319,"F",NA,"Married",TRUE,"Rented",FALSE
+"617","New York",217315,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"356","Louisiana",863276,"F",FALSE,"Married",TRUE,"Rented",FALSE
+"89","California",1169067,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"597","New York",175572,"F",FALSE,"Married",FALSE,"Rented",TRUE
+"621","New York",1412161,"M",TRUE,"Married",TRUE,"Rented",TRUE
+"781","Oregon",269836,"F",NA,"Widowed",TRUE,"Homeowner with mortgage/loan",FALSE
+"454","Michigan",314099,"F",NA,"Widowed",FALSE,"Rented",TRUE
+"144","California",1022619,"M",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"348","Kentucky",512594,"F",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"873","Tennessee",1407895,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"55","California",569414,"F",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"931","Texas",684640,"M",TRUE,"Divorced/Separated",TRUE,"Rented",FALSE
+"560","New Jersey",104506,"M",NA,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"638","New York",506042,"M",TRUE,"Divorced/Separated",TRUE,"Homeowner with mortgage/loan",FALSE
+"46","California",665669,"F",TRUE,"Never Married",TRUE,"Rented",FALSE
+"579","New Jersey",733279,"M",TRUE,"Married",FALSE,"Rented",FALSE
+"974","Washington",702348,"F",NA,"Married",TRUE,"Rented",TRUE
+"389","Maryland",332292,"M",TRUE,"Never Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"631","New York",499637,"F",NA,"Never Married",TRUE,NA,NA
+"414","Massachusetts",50220,"M",NA,"Divorced/Separated",TRUE,"Rented",FALSE
+"332","Iowa",1083939,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"394","Maryland",971768,"M",TRUE,"Never Married",FALSE,NA,NA
+"761","Ohio",1238518,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"946","Virginia",1388751,"F",FALSE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE
+"223","Georgia",258948,"F",NA,"Widowed",TRUE,"Rented",FALSE
+"41","California",1199409,"M",TRUE,"Never Married",FALSE,"Rented",FALSE
+"96","California",575660,"F",TRUE,"Never Married",FALSE,"Rented",TRUE
+"903","Texas",40449,"M",NA,"Married",TRUE,"Homeowner free and clear",FALSE
+"17","Arizona",68013,"M",NA,"Divorced/Separated",FALSE,NA,NA
+"918","Texas",183889,"M",TRUE,"Married",TRUE,"Homeowner with mortgage/loan",FALSE

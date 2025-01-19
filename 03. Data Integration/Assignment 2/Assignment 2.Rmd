@@ -1,0 +1,62 @@
+---
+title: "Exercise 2"
+output: pdf_document
+---
+
+# Assignments 2: Data Integration
+
+1.  Combine the data from the **custdata2i** and **custdata3i** files through the identifying entity to the same "customer id" attribute. Ignore observations that do not contain complete attribute information.
+2.  Create a new data set for **male** customers with a **salary greater than 7000 dollars** and also contain information for the following attributes:\
+    `state.of.res, custid, marital.stat, housing.type, num.vehicles, sex, income`
+3.  Show the data for each customer in the form of an ascending salary order.
+4.  Suppose new information is known as follows:\
+    ![](images/clipboard-4046379754.png){width="347"}
+5.  Add the new observation information in your data set.
+6.  Suppose you know new attribute information (personal loan) for each customer (newinfo file), combine the new attribute information with your data set.
+
+```{r}
+custdata2i = read.csv('custdata2i.csv')
+custdata3i = read.table('custdata3i.txt')
+newinfo = read.table('newinfo.txt')
+```
+
+```{r}
+colnames(custdata2i)
+```
+
+```{r}
+colnames(custdata3i)
+```
+
+```{r}
+data = merge(custdata2i, custdata3i, by.x='ID.Customer', by.y='custid')
+colnames(data)
+```
+
+```{r}
+data = na.omit(data)
+colnames(data)
+```
+
+```{r}
+data = subset(data, data$sex=='M' & data$income > 7000, select=c(state.of.res, ID.Customer, marital.stat, Home.Status, num.vehicles, sex, income))
+data
+```
+
+```{r}
+sort(data)
+```
+
+```{r}
+state.of.res = c('Alabama', 'Louisiana', 'New York')
+ID.Customer = c(567891, 33421, 21134)
+marital.stat = c('Married', 'Never Married', 'Divorced/Separated')
+ins.health = c(TRUE, FALSE, TRUE)
+Home.Status = c('Rented', NA, 'Homeowner with mortgage/loan')
+num.vehicles = c(2,1,2)
+sex = c('M', 'M', 'M')
+is.employed = c(TRUE, FALSE, TRUE)
+income = c(99200, NA, 150341)
+
+
+```

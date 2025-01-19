@@ -1,0 +1,106 @@
+---
+title: "Tenaga Buruh"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+geometry: margin=0.5cm
+---
+
+# Load library
+
+```{r}
+library(arrow)
+library(forecast)
+lf = read_parquet("https://storage.dosm.gov.my/labour/lfs_qtr.parquet")
+```
+
+# Labor force
+
+## Decomposing labor force
+
+```{r}
+lf_ts = ts(lf[,2], start = c(2010,1), frequency = 4)
+
+plot(decompose(lf_ts))
+```
+
+## Forecasting labor force
+
+```{r}
+par(mfrow=c(1,2))
+plot(forecast(auto.arima(lf_ts)))
+plot(forecast(tbats(lf_ts)))
+```
+
+# Employed labor force
+
+## Decomposing employed labor force
+
+```{r}
+lf_emp = ts(lf[,3], start = c(2010,1), frequency = 4)
+
+plot(decompose(lf_emp))
+```
+
+## Forecasting employed labor force
+
+```{r}
+par(mfrow=c(1,2))
+plot(forecast(auto.arima(lf_emp)))
+plot(forecast(tbats(lf_emp)))
+```
+
+# Unemployed labor force
+
+## Decomposing unemployed labor force
+
+```{r}
+lf_unemp = ts(lf[,4], start = c(2010,1), frequency = 4)
+
+plot(decompose(lf_unemp))
+```
+
+## Forecasting unemployed labor force
+
+```{r}
+par(mfrow=c(1,2))
+plot(forecast(auto.arima(lf_unemp)))
+plot(forecast(tbats(lf_unemp)))
+```
+
+# Unemployment rate
+
+## Decomposing unemployment rate
+
+```{r}
+u_rate = ts(lf[,8], start = c(2010,1), frequency = 4)
+
+plot(decompose(u_rate))
+```
+
+## Forecasting unemployment rate
+
+```{r}
+par(mfrow=c(1,2))
+plot(forecast(auto.arima(u_rate)))
+plot(forecast(tbats(u_rate)))
+```
+
+# Outside labor force
+
+## Decomposing outside labor force
+
+```{r}
+outside = ts(lf[,5], start = c(2010,1), frequency = 4)
+
+plot(decompose(outside))
+```
+
+## Forecasting outside labor force
+
+```{r}
+par(mfrow=c(1,2))
+plot(forecast(auto.arima(outside)))
+plot(forecast(tbats(outside)))
+```

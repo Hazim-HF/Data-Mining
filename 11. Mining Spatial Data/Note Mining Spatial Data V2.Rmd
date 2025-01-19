@@ -1,0 +1,148 @@
+---
+title: "Untitled"
+author: "Hazim Fitri"
+date: "2025-01-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+library(raster)
+p = shapefile(system.file('external/lux.shp',package='raster'))
+data.frame(p)
+plot(p,axes=T)
+```
+
+```{r}
+showDefault(p)
+```
+
+# Spatial correlation
+
+## Moran-I
+
+```{r, warning=FALSE}
+library(spdep)
+w = poly2nb(p, row.names=p$Id)
+
+ww = nb2listw(w)
+moran.test(p$AREA, ww)
+```
+
+# Spatial Interpolation
+
+Proximity polygons.
+Nearest neighbour interpolation.
+Inverse distance weighted. (IDW)
+Kriging.
+
+## Proximity polygons.
+
+```{r, warning=FALSE}
+library(devtools)
+install_github('rspatial/rspat')
+library(rspat)
+```
+
+```{r}
+d = spat_data('precipitation')
+head(d)
+```
+
+```{r}
+d$prec = rowSums(d[,6:17])
+dsp = vect(d, c('LONG', 'LAT'), crs = '+proj=longlat +datum=WSG84')
+```
+
+```{r}
+CA = spat_data('counties')
+
+# takrifkan kategori amaun curahan hujan
+cuts = c(0, 200, 300, 500, 1000, 3000)
+
+blues = colorRampPalette(c('yellow', 'orange', 'purple', 'blue', 'darkblue'))
+plot(CA)
+plot(dsp, 'prec', type = 'interval', col = blues(10), breaks = cuts, 
+     add = T)
+```
+
+## Proximity Polygon
+
+```{r}
+v = voronoi(dsp)
+plot(v)
+
+```
+
+```{r}
+vca = crop(v, CA)
+plot(vca, 'prec')
+```
+
+```{r}
+houses = read.csv('hd.csv', sep = ',', header = T)
+
+# Convert data into spatial class
+countries = spat_data('counties')
+
+hvect = vect(houses, c("longitude", "latitude"))
+
+plot(hvect, axes = T)
+```
+
+# Local Spatial Regression
+
+```{r}
+hd = houses
+model = glm(houseValue~income+houseAge+roomhead+bedroomhead+population,
+            data = hd)
+
+summary(model)
+
+```
+
+```{r}
+countrynames = unique(hd$NAME)
+regfun = function(x) {
+  dat = hd[hd$NAME==x,]
+  m = glm(houseValue~income+houseAge+roomhead+bedroomhead+population, 
+          data = dat)
+  coefficients(m)
+}
+
+hd2 = hd[!is.na(hd$NAME), ]
+countrynames = unique(hd2$NAME)
+
+res = sapply(countrynames, regfun)
+
+dotchart(sort(res['income', ]), cex = 0.65)
+```
+
+```{r}
+resdf = data.frame(NAME=colnames(res), t(res))
+dcounties = aggregate(countries[, 'NAME'], 'NAME')
+cnres = merge(dcounties[, 'NAME'], 'NAME')
+```

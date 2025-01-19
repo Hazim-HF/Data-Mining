@@ -1,0 +1,51 @@
+---
+title: "Mining Web Data"
+author: "Hazim Fitri"
+date: "2025-01-12"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+geometry: margin=0.5cm
+---
+
+# 
+
+```{r}
+library(robotstxt)
+paths_allowed(paths = c('https://en.wikipedia.org/wiki/List_of_Formula_One_drivers'))
+```
+
+```{r}
+paths_allowed(paths = c('https://www.bursamalaysia.com/'))
+```
+
+```{r}
+paths_allowed(paths = c('https://www.maybank2u.com.my/home/m2u/common/login.do'))
+
+```
+
+```{r}
+library(xml2)
+library(rvest)
+
+link = 'https://en.wikipedia.org/wiki/List_of_Formula_One_drivers'
+page = read_html(link)
+
+```
+
+convert html into table
+
+```{r}
+drivers_f1 = html_element(page, 'table.sortable') %>% html_table()
+drivers_f1
+```
+
+```{r}
+drivers_f1 = drivers_f1[c(1:4, 7:9)]
+drivers_f1 = drivers_f1[-nrow(drivers_f1), 1]
+
+# Negara menang paling banyak F1
+drivers_f1Drivers' Championships
+colnames(drivers_f1)
+```

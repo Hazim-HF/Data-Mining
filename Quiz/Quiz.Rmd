@@ -1,0 +1,121 @@
+---
+title: "Quiz STQD6414"
+author: "Hazim Fitri Bin Ahmad Faudzi (P152419)"
+output: 
+  pdf_document:
+  toc: true
+  toc_depth: 6
+---
+
+# Soalan 1
+
+## **a) Terangkan objektif utama analisis faktor**
+
+Objektif utama analisis faktor adalah untuk menurunkan dimensi data dengan cara mencari faktor-faktor pendam dalam pemboleh ubah data asal.
+
+## **b) Nyatakan peranan pemboleh ubah pendam dalam analisis faktor.**
+
+Peranan faktor pendam dalam analisis faktor adalah bagi menerangkan kovarians antara pembolehubah tercerap dalam bentuk dimensi yang lebih kecil.
+
+## **c) Diberi set data *FACars.csv* yang menerangkan 14 atribut berkaitan skor keutamaan pelanggan bagi tingkahlaku pembelian kereta. Jalankan analisis faktor terhadap set data ini berdasarkan arahan-arahan berikut:**
+
+### **i) Skalakan data bagi setiap atribut.**
+
+```{r}
+data = read.csv('FACars.csv')
+head(data)
+```
+
+```{r}
+str(data)
+```
+
+```{r}
+z_score = scale(data)
+z_score
+```
+
+### **ii) Dapatkan matriks kolerasi dan terangkan berkaitan struktur data.**
+
+```{r}
+library(corrplot)
+corrplot(cor(z_score), order='hclust')
+```
+
+```{r}
+cor(z_score)
+```
+
+### **iii) Tentukan bilangan pemboleh ubah pendam yang mungkin sesuai untuk menerangkan data dalam (i)**
+
+```{r}
+library(psych)
+scree(z_score)
+```
+
+Berdasarkan scree plot di atas, 6 atau 7 merupakan bilangan pembolehubah pendam yang mungkin sesuai untuk menerangkan data.
+
+### **iv) Berdasarkan maklumat (iii), jalankan analisis faktor terhadap data dan huraikan berkaitan peratusan varians yang boleh diterangkan menerusi faktor-faktor yang diperolehi.**
+
+```{r}
+fa6 = factanal(z_score, factors=6, scores='regression', rotation='varimax')
+fa6
+```
+
+```{r}
+fa7 = factanal(z_score, factors=7, scores='regression', rotation='varimax')
+fa7
+```
+
+Berdasarkan dapatan di atas, 6 faktor hanya mampu menerangkan 51.2% varians daripada data asal manakala 7 faktor hanya 54.9% sahaja varians yang boleh diterangkan menerusi faktor-faktor yang diperolehi.
+
+### **v) Berdasarkan keputusan dalam (iv), terangkan sama ada kaedah analisis faktor sesuai untuk menurunkan dimensi dalam dataset FACars.csv.**
+
+Berdasarkan keputusan, Analisis Faktor bukanlah suatu kaedah yang sesuai untuk digunakan bagi menurunkan dimensi data dalam dataset *FACars.csv*
+
+# Soalan 2
+
+## **a) Nyatakan objektif utama dalam analisis aturan sekutuan.**
+
+Objektif utama dalam analisis aturan sekutuan adalah untuk mencari hubungan yang 'menarik' antara set item.
+
+## **b) Terangkan kefahaman anda berkaitan tiga ukuran asas bagi suatu data Aturan Sekutuan, iaitu Sokongan, Keyakinan dan Lif.**
+
+Sokongan: Perkadaran transaksi dalam data yang mengandungi kedua-dua set item X dan Y.
+
+Keyakinan: Perkadaran transaksi yang mana akan mengandungi Y sekiranya item X dibeli.
+
+Lif: nisbah keyakinan terhadap perkadaran transaksi yang mengandungi Y.
+
+## **c) Diberi data transaksi pembelian barangan di suatu pasar raya seperti jadual berikut**
+
+### **i) Masukkan data rekod transaksi tersebut ke dalam R**
+
+```{r}
+data2 <- paste(
+  "Buku, Pen, Roti, Susu, Gula",
+  "Roti, Gula, Lampin, Soda, Telur",
+  "Susu, Lampin, Gula, Soda, Minyak Masak",
+  "Roti, Susu, Lampin, Soda, Buku, Pen",
+  "Roti, Susu, Lampin, Gula, Buku",
+  sep = "\n"
+)  
+cat(data2)
+write(data2, file='question2.txt')
+library(arules)
+tr = read.transactions('question2.txt', format='basket', sep=',')
+
+```
+
+### **ii) Dapatkan senarai 3 barangan utama yang paling kerap dibeli**
+
+```{r}
+itemFrequencyPlot(tr, topN=3, main='3 Item yang Paling Kerap Dibeli')
+```
+
+### **iii) Adakah terdapat set aturan yang memenuhi niali ambang sokongan 0.01? Jika ada, dapatkan set aturan tersebut.**
+
+```{r}
+rule1 = apriori(tr, parameter=list(supp=0.01))
+inspect(rule1)
+```
