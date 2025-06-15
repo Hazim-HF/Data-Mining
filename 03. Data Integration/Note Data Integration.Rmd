@@ -1,0 +1,206 @@
+---
+title: "Data Integration"
+author: "Hazim Fitri"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+# Data Integration
+
+## Import data in R
+
+### Native data set
+
+Using native data from R, we can call the data by using `data()`. For <example:->
+
+```{r}
+data(iris)
+```
+
+If we wish to understand further regarding the data, we can put `?` in front of out datset. For <example:->
+
+```{r}
+?iris
+```
+
+### Excel file (.xlsx)
+
+In order to load .xlsx file, first we need to load library openxlsx. Then, we will be able to use function `read.xlsx()`. To see all the default value, run `?read.xlsx`
+
+```{r}
+library(openxlsx)
+big_mart = read.xlsx('./Data/Big Mart Dataset.xlsx', sheet = 1, startRow = 1)
+```
+
+## Integration of data with different attributes.
+
+```{r}
+mydata1 = read.table('./Data/mydata1.txt')
+mydata2 = read.csv('./Data/mydata2.csv')
+print(colnames(mydata1))
+print(colnames(mydata2))
+```
+
+Both data has different column names. Thus, in order to integrate both data, we can use `cbind()` function which will combine both column into one data frame.
+
+```{r}
+mydata3 = cbind(mydata1, mydata2)
+colnames(mydata3)
+```
+
+If there's any unique identifier, we can use `merge()` function and it'll automatically merge combine given datasets and merge column with the same name. In this example both dataframe has column 'ID_Person'
+
+```{r}
+mydata4 = merge(mydata1, mydata2)
+mydata4
+```
+
+However, if the column name is different for both data sets, we can specify by using parameter `by.x` and `by.y`
+
+```{r}
+load('./Data/mydata4.RData')
+colnames(mydata4)
+mydata5 = read.csv('./Data/mydata5.csv')
+colnames(mydata5)
+mydata6 = merge(mydata4, mydata5, by.x='ID', by.y='IDPerson')
+mydata6
+```
+
+### Data integration based on inconsistent attribute names with some mismatched attribute values
+
+It will remove all the row without matching value.
+
+```{r}
+mydata7 = mydata5[1:10, ]
+mydata8 = merge(mydata4, mydata7, by.x='ID', by.y='IDPerson')
+mydata8
+```
+
+However, we can still retain the unmatch data by adding argument `all=T`
+
+```{r}
+mydata9 = merge(mydata4, mydata7, by.x='ID', by.y='IDPerson', all=T)
+colnames(mydata9)
+```
+
+Alternative way is we can rename the column before merge
+
+```{r}
+library(plyr)
+mydata10 = rename(mydata9, c('ID'='Nombor ID', 'house'='Number of House'))
+```
+
+## Customize data attribute
+
+### Edit manually
+
+If we wish to customize our data, the most basic way to do it is by using `edit()` function to manually edit the value one by one.
+
+```{r}
+mydata11 = edit(mydata10)
+```
+
+Edit data
+
+```{r}
+datam1 = read.csv('./Data/dataM1.csv')
+library(tidyverse)
+
+```
+
+```{r}
+city_name = function(city) {
+  city = tolower(city) #convert all letter to small letter
+  city = trimws(city) #trim all white space
+  city = gsub('+', '', city) #replace with 1 space
+  city = tools::toTitleCase(city) #change format to title case
+  return(city)
+}
+
+a = tolower(datam1$City)
+b = trimws(a)
+c = ?gsub('+', '', b)
+d = tools::toTitleCase(c)
+```
+
+Edit inconsistent data
+
+(E.g., shortform)
+
+```{r}
+datam2 = read.csv('./Data/dataM2.csv')
+head(datam2)
+```
+
+First, look at the unique data of city column
+
+```{r}
+unique(datam2$City)
+```
+
+Map all short form to the full name. Then, create a function to convert the short form to the full name.
+
+```{r}
+city_map = list('NY'='New York', 'CHI'='Chicago', 'LA'='Los Angeles')
+std_city = function(city){
+  if(city%in%names(city_map)) {
+    return(city_map[[city]])
+  } else {
+    return(city)
+  }
+}
+
+datam2$City = sapply(datam2$City, std_city)
+
+unique(datam2$City)
+```
+
+### Remove redundant data
+
+```{r}
+datam3 = read.csv('./Data/dataM3.csv',sep=';')
+datam3
+```
+
+```{r}
+library(dplyr)
+duplicated(datam3) #check for duplicated data
+distinct(datam3) #return only unique/distinct data
+datam3 %>% distinct(datam3$id, .keep_all=T) #.keep_all is to keep all column
+```
+
+## Export from R
+
+In order to export file from R, first thing that we need to know is where the will be exported to. To see the save filepath, we can use `getwd()` to see the directory
+
+```{r}
+getwd()
+```
+
+If we wish to change the save location, we can redefine our location by using setwd() function and put the path as argument
+
+```{r}
+getwd()
+```
+
+### Save .RData file
+
+Now, we can proceed to save our very first file in our local storage. To save R file we can simply use:
+
+```{r}
+save(datam3, file='data_M3.RData')
+```
+
+### Save .csv file
+
+```{r}
+write.csv(datam3, file='data_M3.csv')
+```
+
+### Save .txt file
+
+```{r}
+write.table(datam3, file='data_M3.txt', sep='\t')
+```

@@ -1,0 +1,10 @@
+1. find minig sequence data on kaggle.
+2. redo business analytic final
+3. 
+
+Question
+1. min-max normalization is it just scaling and not normalize???
+2. Z-score : somehow the data is still not normalize
+
+Data Transformation
+1. What is local discretization

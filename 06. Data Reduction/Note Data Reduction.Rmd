@@ -1,0 +1,317 @@
+---
+title: "Data Reduction"
+author: "Hazim Fitri"
+date: "2024-12-17"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+Data reduction is a technique that we can use when the number of the data is too large and using full data requires a costly and time-consuming computational method. There are two techniques to reduce the data:
+
+1)  Dimension Data Reduction
+
+2)  Numerosity Data Reduction
+
+# Dimensional
+
+## Removing Attributes
+
+A manual way to reduce attribute is by domain knowledge. If the attribute seem very similar or not relevant, we can just simply remove it. Other way is to see whether the attribute is significant or not. This can be done through regression as below.
+
+```{r}
+library(ISLR)
+data(package='ISLR')
+# Major league baseball data from the 1986 and 1987 seasons
+data("Hitters")
+hitters2 = na.omit(Hitters)
+model.f = lm(Salary~., data=hitters2)
+summary(model.f)
+```
+
+As we can see from the above summary for linear model of salary with other variables, only certain variables can be considered significant as indicate by at least one '\*' at the right of the column. This indicates that the variables are at least significance at alpha =0.05
+
+```{r}
+hitters3 = cbind(hitters2$AtBat, hitters2$Hits, hitters2$Walks, hitters2$CWalks,
+                 hitters2$Division, hitters2$PutOuts)
+head(hitters3)
+```
+
+## Primary Component Analysis (PCA)
+
+```{r}
+reading = read.csv('./Data/READING120n.csv')
+head(reading)
+```
+
+Remove non-numeric column.
+
+```{r}
+reading2 = reading[,-1]
+head(reading2)
+```
+
+```{r}
+library(psych)
+describe(reading2)
+str(reading2)
+```
+
+```{r}
+z = scale(reading2)
+pairs(~., data=z)
+```
+
+```{r}
+cor_z = cor(z)
+cor_z
+```
+
+```{r}
+eigen(cor_z)
+```
+
+```{r}
+scree(cor_z)
+```
+
+```{r}
+# variance percentage for each variable in PCA
+prop.var = eigen(cor_z)$values / length(eigen(cor_z)$values)
+prop.var
+```
+
+```{r}
+cumsum(prop.var)
+```
+
+Interpretation :
+
+-   If keep 1 variable, we will be able to explain 67.4% of the data
+
+-   By keeping 2, we already able to explain 81.9% of the data.
+
+```{r}
+v = eigen(cor_z)$vectors
+y = scale(reading2) %*% eigen(cor_z)$vectors
+colnames(y) = c('PCA1', 'PCA2', 'PCA3', 'PCA4', 'PCA5', 'PCA6')
+head(y)
+```
+
+```{r}
+#we only keeping PCA1 and PCA2 for further analysis
+data2 = y[c(1,2)]
+head(data2)
+```
+
+## Factor Analysis
+
+```{r}
+# make the first column as row names
+foodtexture = read.csv('./Data/food-texture.csv', row.names = 1)
+
+# alternatively
+# rownames(foodtexture) = foodtexture$X
+head(foodtexture)
+```
+
+```{r}
+str(foodtexture)
+```
+
+```{r}
+library(corrplot)
+corrplot(cor(scale(foodtexture)), order = 'hclust')
+```
+
+```{r}
+# scree plot
+scree(scale(foodtexture))
+```
+
+```{r}
+# factor analysis
+f.a = factanal(scale(foodtexture), factors = 2, rotation = 'varimax')
+f.a
+```
+
+Interpretation :
+
+-   We can keep 76.1% of the original data using 2 factor from the original 5 variables
+-   Dominant variables from factor 1 : Oil, Density, Crispy, Fracture
+-   Dominant variables from factor 2 : Crispy, Fracture, Hardness
+
+```{r}
+f.a_score = factanal(scale(foodtexture), factors = 2,
+                     scores = c('regression'), rotation = 'varimax')
+f.a_score
+```
+
+# Numerosity
+
+## Parametric Model
+
+### Regression Model
+
+```{r}
+data = read.csv('./Data/data.csv', sep=';')
+head(data)
+```
+
+In this model, we're trying to predict the expenditure using 3 predictor variable which is the income, education level, and work experience. We assume the **Y is nearly normally distributed**
+
+```{r}
+hist(data$expenditure)
+```
+
+Since the response variable is not normal, we need to transform the data to be normal. For this example, we use log to transform the data
+
+```{r}
+exp_t = log(data$expenditure)
+hist(exp_t, main='Log of expenditure')
+```
+
+```{r}
+str(data)
+```
+
+Next, we notice that the education level is supposed to be a categorical variable instead of numerical variable. Thus, we need to change the data type first
+
+```{r}
+data$education_level = as.factor(data$education_level)
+str(data)
+```
+
+Now, we can start to fit the data into linear regression model.
+
+```{r}
+model_reg = lm(log(expenditure)~income+education_level+work_experience, 
+             data=data)
+summary(model_reg)
+```
+
+$R^2 > 0.99$ shows that this model is suitable for represent the original data. Save information related to this model
+
+1.  Parameter coefficient:
+2.  $$
+    log(expenditure) = 0.09621 + 0.0005(income) + 0.1872(education_level) + 0.3292(education_level3
+    $$
+3.  Feature information
+4.  
+
+```{r}
+coef(model_reg)
+```
+
+```{r}
+# feature information
+# X1 = income
+muIn = mean(data$income)
+sdIn = sd(data$income)
+rangeIn = range(data$income)
+hist(data$income)
+```
+
+```{r}
+# X2 = Education level
+edu_range = 1:5
+```
+
+```{r}
+# X3 = Work Experience
+muWe = mean(data$work_experience)
+sdWe = sd(data$work_experience)
+rangeWe = range(data$work_experience)
+hist(data$work_experience)
+
+```
+
+```{r}
+# feature simulation
+n = 20
+```
+
+```{r}
+# X1 = income
+income.sim = rnorm(n, mean = muIn, sd = sdIn)
+hist(income.sim, main = 'Income Simulation')
+```
+
+```{r}
+# X2 = Education level
+education.sim = sample(1:5, n, replace = T)
+```
+
+```{r}
+# X3 = Work Experience
+we.sim = rnorm(n, mean = muWe, sd = sdWe)
+hist(we.sim)
+```
+
+```{r}
+feature.sim = data.frame(work_experience = we.sim, income = income.sim,
+                         education_level = education.sim)
+feature.sim$education_level = as.factor(feature.sim$education_level)
+head(feature.sim)
+```
+
+```{r}
+y.sim  = predict(model_reg, feature.sim)
+head(y.sim)
+```
+
+### Log-linear Model
+
+### Probability Distribution
+
+## Non-Parametric Model
+
+### Histogram
+
+### Resampling
+
+```{r}
+kewangan = read.table('./Data/Kewangan.D.txt')
+head(kewangan)
+```
+
+```{r}
+table(kewangan$Bangsa)/length(kewangan$Bangsa)
+```
+
+From the data above, we can see that the data is not properly represent Malaysia population. Thus, we can use our general knowledge for the proportion. However, in the real world cases, this is the idea on how to calculate the proportion of each category. For this exercise, we'll use 60% Malay, 30% Chinese, 10% Indian.
+
+```{r}
+sample_size = 3000
+sm = sample_size * 0.6
+sc = sample_size * 0.3
+si = sample_size * 0.1
+# separate according to race
+dm = subset(kewangan, Bangsa=='Melayu')
+dc = subset(kewangan, Bangsa=='Cina')
+di = subset(kewangan, Bangsa=='India')
+# bootstrap resampling
+nm = sample(nrow(dm), size=sm, replace=F)
+nc = sample(nrow(dc), size=sc, replace=F)
+ni = sample(nrow(di), size=si, replace=F)
+#
+snm = dm[nm,]
+snc = dc[nc,]
+sni = di[ni,]
+
+# create new data
+newdata = rbind(snm, snc, sni)
+rownames(newdata) = NULL
+head(newdata)
+```
+
+### Clustering
+
+## Types of sampling
+
+### Simple
+
+```{r}
+
+```

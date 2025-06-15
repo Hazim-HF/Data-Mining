@@ -1,0 +1,206 @@
+## Mining Process
+library(bupaR)
+library(edeaR)
+library(eventdataR)
+library(processmapR)
+library(processmonitR)
+library(xesreadR)
+library(petrinetR)
+library(daqapo)
+library(dplyr)
+
+Example of event log data:
+Patients data
+data(patients)
+data.frame(patients)
+patients%>% process_map()
+
+Sepsis data
+data(sepsis)
+head(data.frame(sepsis))
+sepsis %>% process_map()
+
+Hospital Log data
+data(hospital_actlog)
+data.frame(hospital_actlog)
+hospital_actlog %>% process_map()
+
+Data Quality Assessment with daqapo
+Kebergantungan atribut (Attribute Dependencies)
+hospital_actlog %>% 
+  detect_attribute_dependencies(antecedent = activity == "Registration",
+                                consequent = startsWith(originator,"Clerk"))
+
+Jurang jujukan ID kes (Case ID Sequence Gaps)
+Mengesan jurang dalam jujukan ID kes.
+hospital_actlog %>%
+  detect_case_id_sequence_gaps()
+
+# hospital_actlog %>%cases (tiada ID kes 511, 513-516)
+
+Keberlakuan aktiviti bersyarat (Conditional Activity Presence)
+hospital_actlog %>%
+  detect_conditional_activity_presence(condition = specialization == "TRAU",
+                                       activities = "Clinical exam")
+
+Nilai pencil bagi tempoh masa (Duration Outliers)
+hospital_actlog %>%
+  detect_duration_outliers(Treatment = duration_within(lower_bound = 0, upper_bound = 15))
+
+Tempoh tak aktif (Inactive Periods)
+hospital_actlog %>%
+  detect_inactive_periods(threshold = 30)
+
+Kes-kes tak lengkap (Incomplete Cases)
+hospital_actlog %>% detect_incomplete_cases(activities=c("Registration","Triage","Clinical exam","Treatment","Treatment evaluation"))
+
+Nama aktiviti yang salah (Incorrect Activity Names)
+hospital_actlog%>%detect_incorrect_activity_names(allowed_activities=c("Registration","Triage","Clinical exam","Treatment","Treatment evaluation"))
+
+Nilai-nilai lenyap (Missing Values)
+hospital_actlog %>%  detect_missing_values()
+
+Pendaftaran berganda (Multiregistration)
+hospital_actlog %>%
+  detect_multiregistration(threshold_in_seconds = 10)
+
+
+Anomali masa (Time Anomalies)
+hospital_actlog %>%
+  detect_time_anomalies()
+
+Nilai-nilai unik (Unique Values)
+hospital_actlog %>%
+  detect_unique_values(column_labels = "activity")
+
+
+Subset data peristiwa (Subsetting event data)
+Tapisan peristiwa (Event filters)
+Label aktiviti (Activities labels)
+patients %>%
+    filter_activity(c("X-Ray", "Blood test")) %>% activities
+
+Kekerapan aktiviti (Activity frequency)
+patients %>%
+    filter_activity_frequency(interval = c(300,500)) %>%activities
+
+Label sumber (Resource labels)
+patients %>%
+    filter_resource(c("r1","r4")) %>%
+    resource_frequency("resource")
+
+Kekerapan sumber (Resource frequency)
+patients %>%
+    filter_resource_frequency(interval = c(200,300)) %>% resources()
+
+Pangkasan kes (Trim cases)
+patients %>%
+    filter_trim(start_activities = "Registration", end_activities =  c("MRI SCAN","X-Ray")) 
+
+Tapisan kes (Case filters)
+Masa daya pemprosesan (Throughput time)
+Contoh: lihat kes dengan masa pemprosesan antara 50 dan 100 jam.
+patients %>%
+    filter_throughput_time(interval = c(50, 100), units = "hours") 
+
+Panjang jejak (Trace length)
+patients %>%
+    filter_trace_length(interval = c(2, 5)) %>% traces
+
+Keberlakuan suatu aktiviti  (Activity presence)
+patients %>%filter_activity_presence("X-Ray") %>%traces
+
+Duluan (Precedence)
+patients %>%
+    filter_precedence(antecedents = "Triage and Assessment",
+                      consequents = "Blood test",
+Kekerapan jejak (Trace Frequency)
+Contoh: lihat kes yang kekerapan jejak kurang daripada 2.
+patients %>% filter_trace_frequency(interval = c(0,2)) 
+
+Pengagregatan data peristiwa
+Collapse Activities
+library(bupaverse)
+
+Is-a aggregation
+patients %>%act_unite(Scan=c("MRI SCAN","X-Ray")) %>%
+process_map()
+
+Part-of aggregation
+patients %>%act_collapse(Testing=c("MRI SCAN","X-Ray","Blood test")) %>%
+process_map()
+Analisis kawalan-aliran (Control flow analysis)
+Perkadaran aktiviti (Activity Proportion)
+patients %>% activity_presence() %>% plot()
+
+Kekerapan aktiviti (Activity Frequency)
+    activity_frequency("activity")
+
+Liputan Jejak (Trace Coverage)
+patients %>% trace_coverage("trace") 
+
+Panjang Jejak (Trace Length)
+patients %>% trace_length("log") 
+
+Pematuhan berasaskan-aturan (Rule-based conformance)
+library(bupaR)
+library(processcheckR)
+
+sepsis %>%
+  check_rule(starts("ER Registration"), label = "r1") %>%
+  check_rule(and("CRP","LacticAcid"), label = "r2") %>%
+  group_by(r1, r2) %>%n_cases()
+
+Penapisan berasaskan-aturan (Rule-based filtering)
+Instead of adding logical values for each rule, you can also immediately filter the cases which adhere to one or more rules, using the filter_rules
+
+sepsis %>%
+  filter_rules(
+    r1 = starts("ER Registration"),
+    r2 = and("CRP","LacticAcid")) %>%
+  n_cases()
+
+
+Performance Analysis
+Masa terbiar (Idle Time)
+patients %>%
+    idle_time("resource", units = "days") %>% plot()
+
+Masa pemprosesan (Processing Time)
+patients %>%  processing_time("activity") %>% plot()
+
+Masa truput (Throughput Time)
+The throughput time is the time form the very first event to the last event of a case. The levels at which it can be computed are log, trace, or case.
+patients %>% throughput_time("case") %>% plot()
+
+Organisational Analysis
+Kekerapan sumber (Resource Frequency)
+patients %>%
+    resource_frequency("resource")%>% plot()
+
+Penglibatan sumber (Resource Involvement)
+patients %>% resource_involvement(level = "resource") %>% plot()
+
+Pengkhususan sumber (Resource Specialization)
+patients %>% resource_specialisation("resource")
+
+Rangkaian penyerahan kerja (Handover-of-work network)
+patients %>% resource_map()
+
+Resource precedence matrix
+patients %>%  resource_matrix() %>% plot()
+
+
+
+
+Process Matrix
+Relative case frequency of flows
+patients %>%    process_matrix(frequency("relative-case")) %>%    plot()
+
+Dotted Chart
+patients %>%
+    dotted_chart(x = "absolute")
+
+Trace exlorer
+patients %>%    trace_explorer()
+

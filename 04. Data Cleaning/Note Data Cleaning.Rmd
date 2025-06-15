@@ -1,0 +1,365 @@
+---
+title: "Data Cleaning"
+author: "Hazim Fitri"
+date: "2024-12-17"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
+---
+
+# Introduction
+
+Package to deal with missing data
+
+-   mice
+
+-   Amelia
+
+-   missForest
+
+-   Hmisc
+
+-   mi
+
+Process of data cleaning
+
+-   Manage missing data
+
+-   Manage inconsistent data
+
+-   Manage outliers
+
+# Manage missing data
+
+## Identify missing data
+
+```{r}
+mdata = read.csv('./Data/Mdata.csv', sep = ';')
+head(mdata)
+```
+
+```{r}
+library(mice)
+md.pattern(mdata)
+```
+
+## Remove missing data
+
+This technique might only be appropriate when the number of missing value is small. However, if the number of missing value is large, we might try to impute the data. However, some missing data might not suitable of be estimated according to domain knowledge.
+
+```{r}
+head(na.omit(mdata))
+```
+
+```{r}
+# alternative way to filter only data without any missing value
+head(mdata[complete.cases(mdata), ])
+```
+
+```{r}
+# see all rows of data with missing value in at least one of its attribute
+head(mdata[!complete.cases(mdata), ])
+```
+
+## Fill in manually
+
+This technique also require domain knowledge
+
+```{r}
+head(edit(mdata))
+```
+
+## Impute using centralized metric
+
+-   mean : normal data
+
+-   median : skewed data
+
+-   mode : categorical data
+
+```{r}
+par(mfrow=c(1,3))
+hist(mdata$indus, col = 'skyblue', main = 'Indus', xlab = 'Indus')
+hist(mdata$crim, col = 'bisque3', main = 'Crim', xlab = 'Crim')
+hist(mdata$medv, col = 'aquamarine4', main = 'Medv', xlab = 'Medv')
+```
+
+```{r}
+# imputate using median of the centralized metric
+indus_imp = ifelse(is.na(mdata$indus), median(mdata$indus, na.rm = T), mdata$indus)
+
+# compare the data distribution before and after imputation
+par(mfrow=c(1,2))
+hist(mdata$indus, col = 'magenta', main = 'Original Data', xlab = 'Indus')
+hist(indus_imp, col = 'darkblue', main = 'Imputed Data', xlab = 'Indus')
+```
+
+## k-nearest neighbor
+
+```{r}
+iris.mis1 = read.csv('./Data/iris.mis1.csv')
+head(iris.mis1)
+```
+
+```{r}
+library(multiUS)
+iris_knn = KNNimp(iris.mis1, k = 10)
+
+md.pattern(iris_knn)
+```
+
+## Statistical imputation
+
+```{r}
+airquality = read.table('./Data/airquality.txt')
+head(airquality)
+```
+
+```{r}
+# predictive mean matching
+air.pmm = mice(airquality, m = 5, meth = 'pmm')
+
+md.pattern(complete(air.pmm))
+```
+
+```{r}
+data2 = read.csv('./Data/dat2.csv')
+data2 = data2[-1, ]
+
+library(dplyr)
+
+dat = data2 %>%
+  mutate(Smoking = as.factor(Smoking)) %>%
+  mutate(Education = factor(Education, 
+                            levels = c('Low', 'Medium', 'High'),
+                            ordered = T)) %>%
+  mutate(Gender = as.factor(Gender))
+
+init = mice(dat, maxit = 0)
+meth = init$method
+predM = init$predictorMatrix
+
+meth[c('Age')] = 'pmm'
+meth[c('Cholesterol')] = 'pmm'
+meth[c('SystolicBP')] = 'pmm'
+meth[c('BMI')] = 'pmm'
+meth[c('Gender')] = 'pmm'
+meth[c('Gender')] = 'logreg'
+meth[c('Smoking')] = 'logreg'
+meth[c('Education')] = 'polyreg'
+
+ImputedData = mice(dat, method = meth, predictorMatrix = predM)
+
+CompletedData = complete(ImputedData)
+md.pattern(CompletedData)
+```
+
+# Manage inconsistent data
+
+## Identify inconsistent data
+
+## Domain knowledge
+
+# Manage outliers
+
+## Detect outliers
+
+### Univariate
+
+```{r}
+ozone3 = read.csv('./Data/ozone3.csv')
+head(ozone3)
+```
+
+```{r, fig.height=10}
+par(mfrow=c(2,2))
+boxplot(ozone3$ozone_reading, main = 'Ozone Reading', col = 'violet')
+boxplot(ozone3$pressure_height, main = 'Pressure Height', col = 'violet')
+boxplot(ozone3$Wind_speed, main = 'Wind speed', col = 'violet')
+boxplot(ozone3$Humidity, main = 'Humidity', col = 'violet')
+
+```
+
+```{r}
+# list out all the outlier
+boxplot.stats(ozone3$ozone_reading)$out
+```
+
+```{r}
+# find the row index for data that contain outlier
+out = which(ozone3$ozone_reading %in% boxplot.stats(ozone3$ozone_reading)$out)
+```
+
+### Bivariate
+
+```{r}
+boxplot(ozone3$ozone_reading~ozone3$Month, 
+        main = "Plot Kotak Bacaan Ozone Bulanan")
+```
+
+```{r}
+boxplot(ozone3$ozone_reading~ozone3$Month)$out
+```
+
+### Multivariate (supervised)
+
+Cook's distance
+
+```{r}
+model = lm(ozone_reading~., data = ozone3)
+
+cooksd = cooks.distance(model)
+
+plot(cooksd)
+
+min.cook = 4 * mean(cooksd)
+
+abline(h=min.cook)
+text(x=1:length(cooksd), y = cooksd, labels = ifelse(cooksd > min.cook, 
+                                                     names(cooksd), ''), 
+      col = 'blue')
+```
+
+Mahalanobis\
+
+```{r}
+datamus = read.csv('./Data/dataMus.csv')
+head(datamus)
+```
+
+```{r}
+mahalanobis(datamus, colMeans(datamus), cov(datamus))
+```
+
+### Multivariate (unsupervised)
+
+## Treating outliers
+
+### Error
+
+### Actual data
+
+# Data Cleaning
+
+Data cleaning involves in dealing with:
+
+1.  Missing data
+2.  Inconsistent data
+3.  Outlier
+
+There are several method to deal with missing data such as:
+
+1.  Identify pattern
+2.  Remove missing data
+3.  Fill manually
+4.  Use centralized metric
+5.  K-Nearest Neighbor
+6.  Statistical imputation
+
+```{r}
+library(mice)
+mdata = read.csv('./Data/MData.csv', sep=';')
+head(mdata)
+```
+
+```{r}
+md.pattern(mdata)
+```
+
+Remove rows that contain missing value.
+
+```{r}
+mdata2 = mdata[complete.cases(mdata),]
+mdata[!complete.cases(mdata),]
+```
+
+```{r}
+mdata$indus
+#edit(mdata$indus)
+mdata
+```
+
+Impute data using Central measure (median)
+
+```{r}
+median(mdata$crim, na.rm=T)
+mdata$crim = ifelse(is.na(mdata$crim), median(mdata$crim, na.rm=T), mdata$crim)
+mdata
+```
+
+`na.rm` argument ask the user whether the missing value should be remove before computing the median
+
+```{r}
+par(mfrow=c(1,3))
+hist(mdata$crim)
+hist(mdata$indus)
+hist(mdata$medv)
+```
+
+We can see that all three histogram is not symmetry.
+
+# K-Nearest Neighbor
+
+```{r}
+iris_mis1 = read.csv('./Data/iris.mis1.csv')
+iris_mis1
+```
+
+```{r}
+library(multiUS)
+iris_knn = KNNimp(data=iris_mis1, k=10)
+iris_knn
+```
+
+# Statistical Method
+
+## Same data type
+
+For data with all variable in a numeric data type, we can impute using Predictive Mean Matching (PMM)
+
+```{r}
+airquality = read.table('./Data/airquality.txt')
+airquality
+```
+
+```{r}
+library(mice)
+md.pattern(airquality)
+```
+
+```{r}
+impdata = mice(airquality, m=5, meth='pmm')
+```
+
+```{r}
+completedata = complete(impdata)
+completedata
+md.pattern(completedata)
+```
+
+## Different data type
+
+For data with different data type, we can use **use different method depends on the variable type**
+
+```{r}
+dat2 = read.csv('./Data/dat2.csv')
+dat2
+```
+
+```{r}
+md.pattern(dat2)
+```
+
+```{r}
+str(dat2)
+```
+
+```{r}
+library(dplyr)
+dat2 = dat2 %>%
+  mutate(Gender=as.factor(Gender)) %>%
+  mutate(Smoking=as.factor(Smoking)) %>%
+  mutate(Education=as.factor(Education))
+str(dat2)
+```

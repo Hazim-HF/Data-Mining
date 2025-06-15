@@ -7,100 +7,222 @@ output:
 geometry: margin=0.5cm
 ---
 
+# Objektif Analisis
+
+-   Meramal kadar pengangguran bagi 2 tahun akan datang
+
+-   Analyze the impact of economic shocks on labor market recovery
+
+-   Study the relationship between participation rates and unemployment
+
+-   Identify seasonal employment patterns
+
+-   Monitor long-term structural changes in the labor market
+
 # Load library
 
-```{r}
+```{r, warning=FALSE}
 library(arrow)
 library(forecast)
 lf = read_parquet("https://storage.dosm.gov.my/labour/lfs_qtr.parquet")
 ```
 
-# Labor force
-
-## Decomposing labor force
+# Tenaga Buruh
 
 ```{r}
 lf_ts = ts(lf[,2], start = c(2010,1), frequency = 4)
 
+plot.ts(lf_ts, main = 'Data Tenaga Buruh di Malaysia', xlab = 'Tahun', 
+        ylab = 'Bilangan Tenaga Buruh')
+```
+
+## Decomposing labor force
+
+```{r}
 plot(decompose(lf_ts))
 ```
 
-## Forecasting labor force
+```{r}
+plot.ts(decompose(lf_ts)$trend, 
+        main = 'Trend Tenaga Buruh di Malaysia', 
+        xlab = 'Tahun', ylab = 'Tenaga Buruh')
+```
 
 ```{r}
-par(mfrow=c(1,2))
-plot(forecast(auto.arima(lf_ts)))
-plot(forecast(tbats(lf_ts)))
+plot.ts(decompose(lf_ts)$seasonal, 
+        main = 'Corak Bermusim Tenaga Buruh di Malaysia', 
+        xlab = 'Tahun', ylab = 'Tenaga Buruh', xlim = c(2010,2011))
+```
+
+```{r}
+plot.ts(decompose(lf_ts)$random, 
+        main = 'Corak Rawak Tenaga Buruh di Malaysia', 
+        xlab = 'Tahun', ylab = 'Tenaga Buruh')
+```
+
+## Meramal Tenaga Buruh di Malaysia
+
+```{r}
+plot(forecast(auto.arima(lf_ts)), 
+     main = 'Tenaga Buruh Malaysia: Ramalan 2025-2026', 
+     xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh')
 ```
 
 # Employed labor force
 
-## Decomposing employed labor force
-
 ```{r}
 lf_emp = ts(lf[,3], start = c(2010,1), frequency = 4)
 
+plot.ts(lf_emp, main = 'Tenaga Buruh Bekerja di Malaysia',
+        xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh Bekerja')
+```
+
+## Decomposing employed labor force
+
+```{r}
 plot(decompose(lf_emp))
 ```
 
-## Forecasting employed labor force
+```{r}
+plot(decompose(lf_emp)$trend, main = 'Trend Tenaga Buruh Bekerja di Malaysia',
+     xlab = 'Tahun', ylab = 'Tenaga Buruh Bekerja')
+```
 
 ```{r}
-par(mfrow=c(1,2))
-plot(forecast(auto.arima(lf_emp)))
-plot(forecast(tbats(lf_emp)))
+plot(decompose(lf_emp)$seasonal, 
+     main = 'Corak Bermusim Tenaga Buruh Bekerja di Malaysia',
+     xlab = 'Tahun', ylab = 'Tenaga Buruh Bekerja', xlim = c(2010, 2011))
+```
+
+```{r}
+plot(decompose(lf_emp)$random, 
+     main = 'Corak Rawak Tenaga Buruh Bekerja di Malaysia',
+     xlab = 'Tahun', ylab = 'Tenaga Buruh Bekerja')
+```
+
+## Meramal Tenaga Buruh yang bekerja di Malaysia
+
+```{r}
+plot(forecast(auto.arima(lf_emp)), 
+     main = 'Tenaga Buruh Bekerja Malaysia: Ramalan 2025-2026', 
+     xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh Bekerja')
 ```
 
 # Unemployed labor force
 
-## Decomposing unemployed labor force
-
 ```{r}
 lf_unemp = ts(lf[,4], start = c(2010,1), frequency = 4)
 
+plot.ts(lf_unemp, main = 'Tenaga Buruh yang Tidak Bekerja di Malaysia', 
+        xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh yang Tidak Bekerja')
+```
+
+```{r}
+plot(decompose(lf_unemp)$trend, 
+     main = 'Trend Tenaga Buruh Menganggur di Malaysia',
+     xlab = 'Tahun', ylab = 'Tenaga Buruh Menganggur')
+```
+
+```{r}
+plot(decompose(lf_unemp)$seasonal, 
+     main = 'Corak Bermusim Buruh Menganggur di Malaysia',
+     xlab = 'Tahun', ylab = 'Tenaga Buruh Menganggur', xlim = c(2010,2011))
+```
+
+## Decomposing unemployed labor force
+
+```{r}
 plot(decompose(lf_unemp))
 ```
 
-## Forecasting unemployed labor force
+## Meramal Tenaga Buruh yang tidak bekerja di Malaysia
 
 ```{r}
-par(mfrow=c(1,2))
-plot(forecast(auto.arima(lf_unemp)))
-plot(forecast(tbats(lf_unemp)))
+plot(forecast(auto.arima(lf_unemp)), 
+     main = 'Tenaga Buruh Menganggur di Malaysia: Ramalan 2025-2026', 
+     xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh Menganggur')
 ```
 
 # Unemployment rate
 
-## Decomposing unemployment rate
-
 ```{r}
 u_rate = ts(lf[,8], start = c(2010,1), frequency = 4)
 
+plot.ts(u_rate, main = 'Kadar Pengangguran di Malaysia', 
+        xlab = 'Tahun', ylab = 'Kadar Pengagguran')
+```
+
+## Decomposing unemployment rate
+
+```{r}
 plot(decompose(u_rate))
 ```
 
-## Forecasting unemployment rate
+```{r}
+plot(decompose(u_rate)$trend, main = 'Trend Kadar Pengangguran di Malaysia',
+     xlab = 'Tahun', ylab = 'Kadar Pengangguran')
+```
 
 ```{r}
-par(mfrow=c(1,2))
-plot(forecast(auto.arima(u_rate)))
-plot(forecast(tbats(u_rate)))
+plot(decompose(u_rate)$seasonal, main = 'Corak Bermusim Kadar Pengangguran di Malaysia',
+     xlab = 'Tahun', ylab = 'Kadar Pengangguran', xlim = c(2010,2011))
+```
+
+## Meramal kadar pengagguran di Malaysia
+
+```{r}
+plot(forecast(auto.arima(u_rate)), 
+     main = 'Kadar Pengagguran Malaysia: Ramalan 2025-2026', 
+     xlab = 'Tahun', ylab = 'Kadar Pengangguran')
 ```
 
 # Outside labor force
 
+```{r}
+outside_lf = ts(lf[,5], start = c(2010,1), frequency = 4)
+
+plot.ts(outside_lf, main = 'Tenaga Buruh Luar di Malaysia', 
+        xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh Luar')
+```
+
 ## Decomposing outside labor force
 
 ```{r}
-outside = ts(lf[,5], start = c(2010,1), frequency = 4)
-
-plot(decompose(outside))
+plot(decompose(outside_lf))
 ```
-
-## Forecasting outside labor force
 
 ```{r}
-par(mfrow=c(1,2))
-plot(forecast(auto.arima(outside)))
-plot(forecast(tbats(outside)))
+plot(decompose(outside_lf)$trend, 
+     main = 'Trend Luar Tenaga Buruh di Malaysia',
+     xlab = 'Tahun', ylab = 'Luar Tenaga Buruh')
 ```
+
+## Meramal tenaga buruh luar di Malaysia
+
+```{r}
+plot(forecast(auto.arima(outside_lf)), 
+     main = 'Tenaga Buruh Luar di Malaysia: Ramalan 2025-2026', 
+     xlab = 'Tahun', ylab = 'Bilangan Tenaga Buruh Luar')
+```
+
+# Significant Findings:
+
+-   Structural break in 2020: Unemployment rate jumped from 3.5% to 5.1% due to COVID-19
+
+<!-- -->
+
+-   Strong recovery trend: Post-COVID recovery bringing unemployment rates back to pre-pandemic levels
+
+<!-- -->
+
+-   Seasonal patterns: Slight seasonal variations in employment, typically higher in Q3 and Q4
+
+<!-- -->
+
+-   Long-term trend: Overall increasing labor force participation rate from 63.5% (2010) to 70.5% (2024)
+
+<!-- -->
+
+-   Recent stability: Unemployment rate has stabilized around 3.3% in recent quarters
+
+The analysis shows that Malaysia's labor market has been resilient, showing strong recovery post-COVID and maintaining stable unemployment rates while increasing labor force participation.

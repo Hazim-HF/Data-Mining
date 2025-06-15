@@ -1,8 +1,11 @@
 ---
-title: "Untitled"
+title: "Mining Spatial Data"
 author: "Hazim Fitri"
 date: "2025-01-12"
-output: html_document
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 6
 ---
 
 ```{r setup, include=FALSE}
@@ -54,10 +57,7 @@ moran.test(p$AREA, ww)
 
 # Spatial Interpolation
 
-Proximity polygons.
-Nearest neighbour interpolation.
-Inverse distance weighted. (IDW)
-Kriging.
+Proximity polygons. Nearest neighbour interpolation. Inverse distance weighted. (IDW) Kriging.
 
 ## Proximity polygons.
 
